@@ -4,9 +4,11 @@ Created on Apr 6, 2011
 @author: Marek Skrajnowski
 '''
 
+
 # paths to directories which contain ONLY email names (sub-directories are also supported)
 mail_paths = [
-              "C:\\Users\\Marek.Marek-Netbook\\Documents\\Dane MOW\\raw",
+              "/media/Stuff/Marek/studia/MOW/Projekt/Dane/raw"
+              #"C:\\Users\\Marek.Marek-Netbook\\Documents\\Dane MOW\\raw",
               #"C:\\Users\\Marek.Marek-Netbook\\Documents\\Dane MOW\\easy_ham",
               #"C:\\Users\\Marek.Marek-Netbook\\Documents\\Dane MOW\\easy_ham_2",
               #"C:\\Users\\Marek.Marek-Netbook\\Documents\\Dane MOW\\hard_ham",
@@ -50,6 +52,7 @@ def removeNumbers(string):
 if __name__ == '__main__':
     
     found_content_types = []
+    skipped_mail = {"exists" : [], "exception" : [], "no words": []}
     mail_number = 1
     
     for mail_path in mail_paths:
@@ -59,7 +62,10 @@ if __name__ == '__main__':
             # create an output path for the current directory
             mail_dir_parent, mail_dir_name = path.split(mail_path)
             output_dir = path.join(mail_dir_parent, "%s_out" % (mail_dir_name), root[len(mail_path)+1:])
-            os.makedirs(output_dir, exist_ok = True)                
+            if not path.exists(output_dir):
+                os.makedirs(output_dir)  
+            elif not path.isdir(output_dir):
+                raise IOError("Output path already exists but is not a directory: %s" % (output_dir))
             
             for name in names:
                 
@@ -76,7 +82,8 @@ if __name__ == '__main__':
                     if overwrite_files:
                         print("Overwriting:", output_path)
                     else:
-                        print("Skipping:", input_path)
+                        #print("Skipping:", input_path)
+                        skipped_mail["exists"].append(input_path)
                         continue
                 
                 # read the email from file
@@ -86,7 +93,8 @@ if __name__ == '__main__':
                     except Exception as e:
                         print("Exception for:", input_path)
                         print(e)      
-                        print("Skipping:", input_path)                  
+                        #print("Skipping:", input_path)              
+                        skipped_mail["exception"].append(input_path)    
                         continue
                     
                 # processing
@@ -100,14 +108,35 @@ if __name__ == '__main__':
                         mail_text += removeNumbers(part.get_payload())
                     elif part.get_content_type() in ("text/html",):
                         mail_text += removeNumbers(removeHTML(part.get_payload()))
+                
+                # if the filtered mail has at least one 3 letter word
+                # save it to a file in the output path
+                save = False  
+                for word in mail_text.split():
+                    if len(word) > 3:
+                        save = True
+                        break
                         
-                  
-                # save the processed mail content to a file in the output path
-                if(mail_text != ""):  
+                if save == True:
                     with open(output_path, mode='w') as output_file:
                         output_file.write(mail_text)
+                else:
+                    print("No 3 letter words after processing:", input_path)
+                    #print("Skipping:", input_path)              
+                    skipped_mail["no words"].append(input_path)  
+            
                 
-                
+    for reason, list in skipped_mail.items():
+        for skipped in list:
+            print(reason, skipped)        
+
+    skipped_count = 0
+    for reason, list in skipped_mail.items():
+        print("%d %s" % (len(list), reason) )
+        skipped_count += len(list)
+        
+    print("%d skipped files" % (skipped_count,) )
+    
     print(found_content_types)
     
     
