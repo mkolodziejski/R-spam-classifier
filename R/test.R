@@ -3,13 +3,15 @@
 # Author: Marek Skrajnowski
 ###############################################################################
 
+library("lsa")
+
 load.data = function(path) {
 	data(stopwords_en);
 	files.count = length(dir(path, recursive = TRUE))
 	
 	# use only words which appear in at least 2% of files
-	min.global.count = round(files.count*0.01)
-	# skip files which appear in over 50% of files
+	min.global.count = max(round(files.count*0.01), 2)
+	# skip files which appear in over 65% of files
 	max.global.count = round(files.count*0.65)
 	
 	tmatrix = textmatrix(path, 
@@ -25,7 +27,8 @@ load.data = function(path) {
 
 }
 
-data.path = "F:\\Marek\\studia\\MOW\\Projekt\\Dane\\small set"
+#data.path = "/home/kouodziey/workspace/R-spam-classifier/Data/tests"
+data.path = "/home/kouodziey/workspace/R-spam-classifier/Data/test2"
 # create document-term matrix
 tmatrix = load.data(data.path);
 # terms
