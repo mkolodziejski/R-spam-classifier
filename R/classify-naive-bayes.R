@@ -10,6 +10,6 @@ classify.naiveBayes = function(trainingSet, classes){
 }
 
 
-nb <- classify.naiveBayes(tmatrix, classes);
+#nb <- classify.naiveBayes(tmatrix, classes);
 #predict(nb, t(tmatrix));
 
