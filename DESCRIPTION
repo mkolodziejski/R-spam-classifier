@@ -1,0 +1,9 @@
+Package: SpamFiltering
+Title: Spam Filtering Algorithms
+Version: 0.1
+Date: 2011-05-27
+Author: Marek Skrajnowski, Michał Kołodziejski
+Maintainer: Marek Skrajnowski <m.skrajnowski@gmail.com>
+Description: Package created to test various algorithms for their suitability at classifying/filtering spam in email collections.
+Depends: lsa, klaR, knnflex
+License: GPL-2
