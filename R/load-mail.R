@@ -69,7 +69,7 @@ load.mail = function(paths, samples,
 		ham.files = files[ham.indices]
 		# TODO: do something with unknown files
 		unknown.files = files[ -c(spam.indices, ham.indices) ] 
-		
+
 		# count the number of spam and ham files, so we dont sample more spam/ham than we have
 		files.count = length(files)
 		spam.count = length(spam.files)
@@ -77,14 +77,14 @@ load.mail = function(paths, samples,
 		
 		spam.sample.count = min( round(spam.probability*samples), spam.count )
 		ham.sample.count = min( samples - spam.sample.count, ham.count )
-	
+
 		# pick sample files of each class
 		spam.sample = sample(spam.files, spam.sample.count)
 		ham.sample = sample(ham.files, ham.sample.count)
 	
 		# join sample sets and generate a classes vector
 		files.sample = c(ham.sample, spam.sample)
-		classes = c(rep('spam',ham.sample.count), rep('ham',spam.sample.count))
+		classes = c(rep('ham',ham.sample.count), rep('spam',spam.sample.count))
 		names(classes) = basename(files.sample)
 		
 		# shuffle the examples so spam and ham are mixed

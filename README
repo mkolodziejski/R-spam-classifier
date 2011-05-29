@@ -1,0 +1,12 @@
+Klasyfikacja bayesowska:
+
+source("load-mail.R")
+source("classify-naive-bayes.R")
+#ts <- load.mail(c("/home/kouodziey/workspace/R-spam-classifier/Data/tests"), samples=6)
+ts <- load.mail(c("/home/kouodziey/workspace/R-spam-classifier/Data/spamassasin"), samples=1000)
+nb <- classify.naiveBayes(ts$matrix, ts$classes)
+tsM <- cbind(ts$matrix)
+tsM[tsM[,]>0]=1
+predict(nb, x=t(tsM))
+
+
