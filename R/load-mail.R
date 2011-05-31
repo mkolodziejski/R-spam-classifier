@@ -2,8 +2,8 @@
 ###############################################################################
 
 # TODO: Move library loading to package depandancies
-library(lsa)
-
+#library(lsa)
+source("modified-textmatrix.R")
 
 is.spam = function(class) {
 	return(class == 'spam')
@@ -25,10 +25,10 @@ is.ham = function(class) {
 #		min.doc.word.count, max.doc.word.count 	- min/max number of times a loaded word must appear in a document
 #		min.glob.word.freq, max.glob.word.freq 		- min/max global frequency of loaded words
 #
-# Returns a list of:
-# 		$matrix  				- word count matrix, columns represent loaded documents, rows represent found words
-# 		$classes 				- vector of classes corresponding with the word count matrix
-
+# Returns an object of class 'load.mail':
+#		$data 					- data.frame which first attribute is the class vector and the following attributes are the found words,
+#									  rows correspond to documents
+#
 load.mail = function(paths, samples, 
 								detect.classes = TRUE, spam.probability = 0.5,
 								shuffle.samples = FALSE, 
@@ -84,8 +84,6 @@ load.mail = function(paths, samples,
 	
 		# join sample sets and generate a classes vector
 		files.sample = c(ham.sample, spam.sample)
-		classes = c(rep('ham',ham.sample.count), rep('spam',spam.sample.count))
-		names(classes) = basename(files.sample)
 		
 		# shuffle the examples so spam and ham are mixed
 		if(shuffle.samples) {
@@ -97,7 +95,6 @@ load.mail = function(paths, samples,
 	}
 	else {
 		files.sample = sample(files, min(samples, length(files)) )
-		classes = rep(NA, length(files.sample))
 	}	
 	
 	# perform the actual text loading
@@ -118,41 +115,73 @@ load.mail = function(paths, samples,
 			minGlobFreq = min.glob.word.count, maxGlobFreq = max.glob.word.count,
 			removeNumbers = FALSE, removeXML = FALSE
 			);
+	
+	tmatrix = tmatrix[,colSums(tmatrix)>0]
 			
-	result =  list()
-	class(result) = "load.mail"
+	# transpose tmatrix so that attributes (words) are in columns and samples (documents) are in rows
+	tmatrix = t(tmatrix)
+	# change the class of tmatrix to a regular matrix, which it actually is
+	class(tmatrix) = "matrix"
 
-	result$matrix = tmatrix
-	result$classes = classes
-	result$call = match.call()
+	# create the final classes vector
+	file.names = basename(dimnames(tmatrix)[[1]])
+	classes = rep(NA, length(file.names))
+	names(classes) = file.names
+	
+	if(detect.classes) {
+		classes[grep("spam", file.names)] = "spam"
+		classes[grep("ham", file.names)] = "ham"
+	}
+	
+	classes = factor(classes)
+		
+	#result$matrix = tmatrix
+	#result$classes = classes
+	result = data.frame(Classes = classes, tmatrix)
+	attr(result, 'call') = match.call()
+	class(result) = c("load.mail", class(result))
 	
 	return(result)
 
 }
 
-summary.load.mail = function(object, ...) {
+summary.load.mail = function(data, ...) {
 	
 	res = list()
 	class(res) = "summary.load.mail"
 	
-	res$call = object$call
-	classes = object$classes
-	matrix = object$matrix
+	res$call = attr(data, 'call')
+	classes = data[,'Classes']
+	matrix  = data[,-1]
 	
-	res$loaded = data.frame( 	Documents = 	length(classes), 
+	res$loaded = data.frame( 		Documents = length(classes), 
 												Spam = sum(is.spam(classes)  & !is.na(classes)),
 												Ham = sum(is.ham(classes) & !is.na(classes)),
 												Unknown = sum(is.na(classes)),
-												Words = dim(matrix)[1] )
-	
-	words.per.doc = colSums(matrix)
-	unique.words.per.doc = colSums(matrix > 0)
-	docs.per.word = rowSums(matrix > 0)
+												Words = dim(matrix)[2],
+												row.names = "")
+										
+	words.per.doc = rowSums(matrix)
+	unique.words.per.doc = rowSums(matrix > 0)
+	docs.per.word = colSums(matrix > 0)
 
-	res$words.per.doc.stats = data.frame( Min = min(words.per.doc), Max = max(words.per.doc), Mean = mean(words.per.doc), Std.Dev = sd(words.per.doc) )
-	res$unique.per.doc.stats = data.frame( Min = min(unique.words.per.doc), Max = max(unique.words.per.doc), Mean = mean(unique.words.per.doc), Std.Dev = sd(unique.words.per.doc) )
-	res$docs.per.word.stats = data.frame( Min = min(docs.per.word), Max = max(docs.per.word), Mean = mean(docs.per.word), Std.Dev = sd(docs.per.word) )
+	res$words.per.doc.stats = data.frame( Min = min(words.per.doc), Max = max(words.per.doc), 
+															Mean = mean(words.per.doc), Std.Dev = sd(words.per.doc), 
+															row.names = "" )
+													
+	res$unique.per.doc.stats = data.frame( Min = min(unique.words.per.doc), Max = max(unique.words.per.doc), 
+															Mean = mean(unique.words.per.doc), Std.Dev = sd(unique.words.per.doc), 
+															row.names = "" )
 	
+	min.i = which.min(docs.per.word)
+	max.i = which.max(docs.per.word)
+	
+	res$docs.per.word.stats = data.frame( Min = docs.per.word[min.i], MinWord = names(docs.per.word)[min.i],
+															Max = docs.per.word[max.i], MaxWord = names(docs.per.word)[max.i],
+															Mean = mean(docs.per.word), Std.Dev = sd(docs.per.word), 
+															row.names = "" )
+	
+		
 	return(res)
 	
 }
@@ -170,7 +199,19 @@ print.summary.load.mail = function(x, ...) {
 	print(x$docs.per.word.stats)
 }
 
+# return a normalized (by the number of words per document) textmatrix
+normalize.mail.data = function(mail.data) {
+		tmatrix = mail.data[-1]
+		words.in.docs = rowSums(tmatrix)
+		mail.data[-1] = tmatrix / rep(words.in.docs, times=dim(tmatrix)[2])
+		return(mail.data)
+}
 
+# return a binary textmatrix
+binary.mail.data = function(mail.data) {
+		mail.data[-1] = as.numeric( mail.data[-1] > 0 )
+		return(mail.data)
+}
 
 # testing
 load.mail.test = function(samples) {
@@ -178,42 +219,32 @@ load.mail.test = function(samples) {
 	#data.path = "/home/kouodziey/workspace/R-spam-classifier/Data/tests"
 	#data.path = "/home/kouodziey/workspace/R-spam-classifier/Data/test2"
 	#data.path = "/media/Stuff/Marek/studia/MOW/Projekt/Dane/small set"
+	data.path = "/media/Stuff/Marek/studia/MOW/Projekt/Dane/processed"
 	#data.path = "C:\\Users\\Marek.Marek-Netbook\\Documents\\Dane MOW\\processed"
-	data.path = "C:\\Users\\Marek.Marek-Netbook\\Documents\\Dane MOW\\small set"
-	#data.path = "/media/Stuff/Marek/studia/MOW/Projekt/Dane/processed"
+	#data.path = "C:\\Users\\Marek.Marek-Netbook\\Documents\\Dane MOW\\small set"
+	
+	cpu.time = function() sum(proc.time()[c(1,2)])
+	elapsed.time = function() proc.time()[3]
 	
 	# load mail from a given path
-	data = load.mail(data.path, samples, spam.probability = 0.33);
+	pt = cpu.time()
+	et = elapsed.time()
+	data = load.mail(data.path, samples, spam.probability = 0.5, min.doc.word.count = 2);
+	cat(paste("\nLoading Time: ", round(elapsed.time()-et, digits = 2), " (", round(cpu.time() - pt, digits = 2), " on CPU)\n\n", sep =""))
 	
-	cat("Summary:\n\n")
+	pt = cpu.time()
+	et = elapsed.time()
 	print(summary(data))
-	cat("\nEnd Summary\n\n")
+	cat(paste("\nSummary Time: ", round(elapsed.time()-et, digits = 2), " (", round(cpu.time() - pt, digits = 2), " on CPU)\n\n", sep =""))
 	
-	# textmatrix
-	tmatrix = data$matrix
-	print(paste("tmatrix words:", dim(tmatrix)[1], ", docs:",  dim(tmatrix)[2]))
+	#ndata = normalize.mail.data(data)
+	#bdata = binary.mail.data(data)
+	#print(data)
+	#print(ndata)
+	#print(bdata)
 	
-	# class vector	
-	classes = is.spam(data$classes)
-	print(paste("classes length:", length(classes)))
-	print(paste("spam count:", sum(classes)))
-	print(paste("shuffle:", sum( abs(classes[-1] - classes[-length(classes)]) ) ))
-		
-	# terms
-	terms = dimnames(tmatrix)$terms
 	
-	# document names
-	docs = names(classes)
-	docs2 = dimnames(tmatrix)$docs
-
-	write.table(tmatrix, file = paste(data.path, ".matrix.txt", sep=""))
-	write.table(terms, file = paste(data.path, ".terms.txt", sep=""))
-	write.table(docs, file = paste(data.path, ".docs.txt", sep=""))
-	write.table(classes, file = paste(data.path, ".classes.txt", sep=""))
-	
-	if( sum(docs != docs2) > 0 ) {
-		print("Documents in tmatrix and class vector are in different order")
-	}	
+			
 	
 }
 
