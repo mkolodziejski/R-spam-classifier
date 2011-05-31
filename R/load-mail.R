@@ -25,9 +25,8 @@ is.ham = function(class) {
 #		min.doc.word.count, max.doc.word.count 	- min/max number of times a loaded word must appear in a document
 #		min.glob.word.freq, max.glob.word.freq 		- min/max global frequency of loaded words
 #
-# Returns an object of class 'load.mail':
-#		$data 					- data.frame which first attribute is the class vector and the following attributes are the found words,
-#									  rows correspond to documents
+# Returns a data.frame (with added class 'load.mail') holding the class vector (factor) as the first attribute named "Classes"
+# and all the loaded words as the following attributes. Documents are treated as samples/examples.
 #
 load.mail = function(paths, samples, 
 								detect.classes = TRUE, spam.probability = 0.5,
