@@ -10,3 +10,13 @@ tsM[tsM[,]>0]=1
 predict(nb, x=t(tsM))
 
 
+
+================================================
+Klasyfikacja bayesowska - e1071:
+
+> source("load-mail.R")
+> source("test-naive-bayes-e1071.R")
+> library("lsa")
+> date(); res <- test.naiveBayes.e1071("/home/kouodziey/workspace/R-spam-classifier/Data/spamassasin", samplesNum = 1000); date(); res
+
+
