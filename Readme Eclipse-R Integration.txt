@@ -18,7 +18,7 @@ Installation:
 
 3. Install libraries used in the project
 	In R run command:
-		install.packages(c('lsa','klaR'))
+		install.packages(c('lsa','klaR', 'e1071', 'knnflex'))
 
 4. In Eclipse set up the R Environment:
 	4.1. Go to Window->Preferences->StatET->Run/Debug->R Environments
