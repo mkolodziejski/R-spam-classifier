@@ -88,7 +88,6 @@ load.mail = function(paths, samples,
 		if(shuffle.samples) {
 			shuffled.indices = sample(length(files.sample))
 			files.sample = files.sample[shuffled.indices]
-			classes = classes[shuffled.indices]
 		}
 		
 	}
