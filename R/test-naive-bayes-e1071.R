@@ -2,7 +2,9 @@ library("e1071")
 source("load-mail.R")
 
 test.naiveBayes.e1071 = function(dataPath, samplesNum = 1000, testSetPart = 0.05){
-    ts <- load.mail(c(dataPath), samples=samplesNum, shuffle.samples=TRUE)
+    ts <- load.mail(c(dataPath), samples=samplesNum, shuffle.samples=TRUE, min.glob.word.freq = 0.01)
+	load.summary <- summary(ts)
+	
     tsM <- ts[, -1]
     tsM[tsM[,]>0]=1
     tsClass <- factor(ts[, 1])
@@ -29,6 +31,7 @@ test.naiveBayes.e1071 = function(dataPath, samplesNum = 1000, testSetPart = 0.05
     #result$testSetClasses <- tsClass[testSetIndex:samplesNum];
     #result$classifier <- enb;
     #result$prediction <- pred;
+	result$load.summary <- load.summary
     result$effectiveness <- goodResults / testSetCount;
     return(result);
 }
