@@ -1,22 +1,14 @@
-Klasyfikacja bayesowska:
+================================================
+Klasyfikacja bayesowska - e1071:
 
-source("load-mail.R")
-source("classify-naive-bayes.R")
-#ts <- load.mail(c("/home/kouodziey/workspace/R-spam-classifier/Data/tests"), samples=6)
-ts <- load.mail(c("/home/kouodziey/workspace/R-spam-classifier/Data/spamassasin"), samples=1000)
-nb <- classify.naiveBayes(ts$matrix, ts$classes)
-tsM <- cbind(ts$matrix)
-tsM[tsM[,]>0]=1
-predict(nb, x=t(tsM))
+> source("test-naive-bayes-e1071.R")
+> date(); res <- test.naiveBayes.e1071("/home/kouodziey/workspace/R-spam-classifier/Data/spamassasin", samplesNum = 1000); date(); res
 
 
 
 ================================================
-Klasyfikacja bayesowska - e1071:
+Klasyfikacja kNN:
 
-> source("load-mail.R")
-> source("test-naive-bayes-e1071.R")
-> library("lsa")
-> date(); res <- test.naiveBayes.e1071("/home/kouodziey/workspace/R-spam-classifier/Data/spamassasin", samplesNum = 1000); date(); res
-
+> source("test-knn.R")
+> date(); res <- test.knn("/home/kouodziey/workspace/R-spam-classifier/Data/spamassasin", samplesNum = 1000, k=7); date(); res
 

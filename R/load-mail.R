@@ -2,7 +2,7 @@
 ###############################################################################
 
 # TODO: Move library loading to package depandancies
-#library(lsa)
+library(lsa)
 source("modified-textmatrix.R")
 
 is.spam = function(class) {
