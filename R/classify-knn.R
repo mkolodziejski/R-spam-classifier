@@ -2,10 +2,6 @@
 # Author: Marek Skrajnowski
 ###############################################################################
 
-# TODO: Move library loading to package depandancies
-library(knnflex)
-library(lsa)
-
 # TODO: Move source file dependancies to the package index
 source("load-mail.R")
 
@@ -25,7 +21,6 @@ cosine.dist = function(x,y) {
 
 euclidean.dist = function(x,y) {
 	x.length = sqrt(rowSums(x^2))
-	
 	d = apply(y,1, function(y.row) {
 				y.rep = matrix(rep(y.row,dim(x)[1]), dim(x), byrow = TRUE)
 				return( sqrt(rowSums((y.rep-x)^2)) )
@@ -37,12 +32,12 @@ euclidean.dist = function(x,y) {
 classify.knn = function(x, ...) UseMethod("classify.knn")
 	
 classify.knn.default = function(training.set, classes, 
-												k=3, dist.function=cosine.dist, minkowski.power=2, 
+												k=3, dist.function=cosine.dist,  
 												agg.method = "majority", ties.method = "first", ...) 
 {
 	result = list( training.set = training.set, classes = classes )
 				
-	result$parameters = list(	k=k, dist.function = dist.function, minkowski.power = minkowski.power, 
+	result$parameters = list(	k=k, dist.function = dist.function,  
 										agg.method = agg.method, ties.method = ties.method, formula = NULL )
 	class(result) = "knn"
 	attr(result,'call') <- match.call()
@@ -50,7 +45,7 @@ classify.knn.default = function(training.set, classes,
 }
 
 classify.knn.formula = function(formula, data, 
-												k=3, dist.function=cosine.dist, minkowski.power=2, 
+												k=3, dist.function=cosine.dist,  
 												agg.method = "majority", ties.method = "first", ...) 
 {
 	# parse the formula
@@ -59,7 +54,7 @@ classify.knn.formula = function(formula, data,
 	classes = model.response(mf)
 	
 	# pass to the default function
-	result <- classify.knn.default(trainingSet, classes, k, dist.function, minkowski.power, agg.method, ties.method, ...)
+	result <- classify.knn.default(trainingSet, classes, k, dist.function, agg.method, ties.method, ...)
 	result$parameters$formula = formula
 	attr(result,'call') <- match.call()
 	attr(result,'formula') <- formula
@@ -76,7 +71,8 @@ predict.knn = function(object, newdata = NULL, ...) {
 		test = newdata
 	}
 	else {
-		test = model.matrix(params$formula, newdata)[,-1]
+		# rbind makes sure the result is a matrix in case of a single test sample
+		test = rbind(model.matrix(params$formula, newdata)[,-1])
 	}
 	
 	test.samples = dim(test)[1]
@@ -104,7 +100,7 @@ predict.knn = function(object, newdata = NULL, ...) {
 }
 
 
-test.predict = function(test.size = 0.2, k=5) {
+test.predict.knn = function(test.size = 0.2, k=5) {
 	data(iris)
 	shuffle = sample(dim(iris)[1])
 	s.iris = iris[shuffle,]
@@ -112,9 +108,9 @@ test.predict = function(test.size = 0.2, k=5) {
 	train = s.iris[1:(split-1),]
 	test = s.iris[split:length(shuffle),]
 	classes = test$Species
-	test$Species = factor("?")
+	test$Species = factor("ham", levels = c("spam", "ham"))
 	
-	knn.obj = classify.knn(Species ~ ., data = train, k=k, dist.function = euclidean.dist)
+	knn.obj = classify.knn(Species ~ ., data = train, k=k, dist.function = cosine.dist)
 	p = predict(knn.obj, newdata = test)
 	
 	test$Species = classes
