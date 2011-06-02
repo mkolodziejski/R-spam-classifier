@@ -5,8 +5,8 @@
 library("e1071")
 source("load-mail.R")
 
-test.naiveBayes.e1071 = function(dataPath, samplesNum = 1000, testSetPart = 0.05){
-    ts <- load.mail(c(dataPath), samples=samplesNum, shuffle.samples=TRUE, min.glob.word.freq = 0.01)
+test.naiveBayes.e1071 = function(dataPath, samplesNum = 1000, spam.part = 0.5, testSetPart = 0.05){
+    ts <- load.mail(c(dataPath), samples=samplesNum, shuffle.samples=TRUE, min.glob.word.freq = 0.01, spam.probability = spam.part)
 	load.summary <- summary(ts)
 	
     tsM <- ts[, -1]
