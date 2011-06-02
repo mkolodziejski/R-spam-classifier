@@ -4,7 +4,7 @@
 
 source("classify-knn-lsa.R")
 
-test.knn = function(dataPath, k=3, samplesNum = 1000, testSetPart = 0.05, dist.function = cosine.dist){
+test.knn.lsa = function(dataPath, k=3, samplesNum = 1000, testSetPart = 0.05, dist.function = cosine.dist){
     ts <- load.mail(c(dataPath), samples=samplesNum, shuffle.samples=TRUE, min.glob.word.freq = 0.01)
 	load.summary <- summary(ts)
 	
@@ -27,7 +27,7 @@ test.knn = function(dataPath, k=3, samplesNum = 1000, testSetPart = 0.05, dist.f
     }
 
     result = list()
-    class(result) = "test.knn"
+    class(result) = "test.knn.lsa"
 	result$load.summary <- load.summary
     result$effectiveness <- goodResults / testSetCount;
     return(result);
