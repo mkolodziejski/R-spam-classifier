@@ -8,8 +8,8 @@ test.knn = function(dataPath, k=3, samplesNum = 1000, testSetPart = 0.05, dist.f
     ts <- load.mail(c(dataPath), samples=samplesNum, shuffle.samples=TRUE, min.glob.word.freq = 0.01)
 	load.summary <- summary(ts)
 	
+	ts = normalize.mail.data(ts)
     tsM <- ts[, -1]
-    tsM[tsM[,]>0]=1
     tsClass <- factor(ts[, 1])
 
     realSamplesNum <- dim(ts)[1];
