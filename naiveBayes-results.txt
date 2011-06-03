@@ -1,0 +1,149 @@
+> date(); res <- test.naiveBayes.e1071("/home/kouodziey/workspace/R-spam-classifier/Data/spamassasin", samplesNum = 1000); date(); res
+[1] "Fri Jun  3 21:44:51 2011"
+[1] "Fri Jun  3 22:00:04 2011"
+$load.summary
+Call:
+load.mail(paths = c(dataPath), samples = samplesNum, spam.probability = spam.part, 
+    shuffle.samples = TRUE, min.glob.word.freq = 0.01)
+
+Loaded:
+ Documents Spam Ham Unknown Words
+       999  499 500       0  1769
+
+Number of words per document:
+ Min  Max     Mean  Std.Dev
+   1 4609 128.6577 332.8675
+
+Number of unique words per document:
+ Min Max     Mean Std.Dev
+   1 780 62.86086 79.9258
+
+Number of documents per word:
+ Min MinWord Max MaxWord     Mean Std.Dev
+  10     odg 640    http 35.49915  44.803
+
+$effectiveness
+[1] 0.8808809
+
+$TP
+[1] 21
+
+$TN
+[1] 23
+
+$FP
+[1] 1
+
+$FN
+[1] 4
+
+$TPrate
+[1] 0.84
+
+$FPrate
+[1] 0.04166667
+
+attr(,"class")
+[1] "test.naiveBayes.e1071"
+
+
+==================================================================
+> date(); res <- test.naiveBayes.e1071("/home/kouodziey/workspace/R-spam-classifier/Data/spamassasin", samplesNum = 1000, spam.part=0.6); date(); res
+[1] "Fri Jun  3 22:28:27 2011"
+[1] "Fri Jun  3 22:41:15 2011"
+$load.summary
+Call:
+load.mail(paths = c(dataPath), samples = samplesNum, spam.probability = spam.part, 
+    shuffle.samples = TRUE, min.glob.word.freq = 0.01)
+
+Loaded:
+ Documents Spam Ham Unknown Words
+       998  598 400       0  1771
+
+Number of words per document:
+ Min  Max     Mean  Std.Dev
+   1 3334 125.1463 232.5405
+
+Number of unique words per document:
+ Min Max     Mean  Std.Dev
+   1 739 65.69639 73.24958
+
+Number of documents per word:
+ Min MinWord Max MaxWord     Mean  Std.Dev
+  10  mailer 628    http 37.02146 47.37389
+
+$effectiveness
+[1] 0.8617234
+
+$TP
+[1] 22
+
+$TN
+[1] 21
+
+$FP
+[1] 2
+
+$FN
+[1] 4
+
+$TPrate
+[1] 0.8461538
+
+$FPrate
+[1] 0.08695652
+
+attr(,"class")
+[1] "test.naiveBayes.e1071"
+> 
+
+=====================================================================
+date(); res <- test.naiveBayes.e1071("/home/kouodziey/workspace/R-spam-classifier/Data/spamassasin", samplesNum = 1000, spam.part=0.7); date(); res
+[1] "Fri Jun  3 22:58:06 2011"
+[1] "Fri Jun  3 23:14:00 2011"
+$load.summary
+Call:
+load.mail(paths = c(dataPath), samples = samplesNum, spam.probability = spam.part, 
+    shuffle.samples = TRUE, min.glob.word.freq = 0.01)
+
+Loaded:
+ Documents Spam Ham Unknown Words
+       999  699 300       0  1770
+
+Number of words per document:
+ Min  Max     Mean  Std.Dev
+   1 4974 135.4905 278.6231
+
+Number of unique words per document:
+ Min Max     Mean Std.Dev
+   1 701 66.95295 72.8312
+
+Number of documents per word:
+ Min MinWord Max MaxWord    Mean  Std.Dev
+  10    farm 596    http 37.7887 48.33612
+
+$effectiveness
+[1] 0.5005005
+
+$TP
+[1] 6
+
+$TN
+[1] 19
+
+$FP
+[1] 0
+
+$FN
+[1] 24
+
+$TPrate
+[1] 0.2
+
+$FPrate
+[1] 0
+
+attr(,"class")
+[1] "test.naiveBayes.e1071"
+
+
