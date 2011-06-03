@@ -21,11 +21,32 @@ test.naiveBayes.e1071 = function(dataPath, samplesNum = 1000, spam.part = 0.5, t
     enb <- naiveBayes(tsM[1:trainingSetCount,], tsClass[1:trainingSetCount]);
     pred <- predict(enb, tsM[testSetIndex:realSamplesNum,])
 
-    goodResults <- 0;    
-    for(predResult in (pred[] == tsClass[testSetIndex:realSamplesNum])){
-        if(predResult == TRUE)
+    # tp rate i fp rate
+    goodResults <- 0;
+    tp <- 0;
+    tn <- 0;
+    fp <- 0;
+    fn <- 0;
+    for(ind in 1:testSetCount){
+        if(pred[ind] == tsClass[testSetIndex + ind - 1]){
             goodResults <- goodResults + 1;
+            
+            if(pred[ind] == "spam"){ tp <- tp + 1; }
+            else { tn <- tn + 1; }
+        }
+        else {
+            if(pred[ind] == "spam"){ fp <- fp + 1; }
+            else { fn <- fn + 1; }
+        }
     }
+
+
+    #for(predResult in (pred[] == tsClass[testSetIndex:realSamplesNum])){
+    #    if(predResult == TRUE)
+    #        goodResults <- goodResults + 1;
+    #}
+
+
 
     result = list()
     class(result) = "test.naiveBayes.e1071"
@@ -37,6 +58,12 @@ test.naiveBayes.e1071 = function(dataPath, samplesNum = 1000, spam.part = 0.5, t
     #result$prediction <- pred;
 	result$load.summary <- load.summary
     result$effectiveness <- goodResults / testSetCount;
+    result$TP <- tp;
+    result$TN <- tn;
+    result$FP <- fp;
+    result$FN <- fn;
+    result$TPrate <- tp / (tp + fn);
+    result$FPrate <- fp / (fp + tn);
     return(result);
 }
 
