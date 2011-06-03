@@ -1,0 +1,79 @@
+Wymagania (ze strony Cichosza):
+
+# Do końca przedostatniego tygodnia semestru należy dostarczyć kod źródłowy opracowanego oprogramowania w formie elektronicznej, dokumentację kodu źródłowego w formie elektronicznej oraz dokumentację projektu w formie papierowej, zawierającą:
+
+   1. szczegółową interpretację tematu projektu,
+   2. szczegółowy opis wykorzystanych algorytmów,
+   3. opis stosowanej procedury eksperymentalnej, w tym:
+         1. pytania, na które była poszukiwana odpowiedź,
+         2. charakterystyka zbiorów danych, które zostały wykorzystane (oraz ewentualnych czynności związanych z przygotowaniem danych),
+         3. parametry algorytmów, których wpływ na wyniki był badany,
+         4. sposób oceny jakości modeli,
+   4. uzyskane wyniki,
+   5. dyskusję wyników i wnioski.
+
+
+================================================================
+Ad. 1 (szczegółowa interpretacja tematu projektu)
+
+    Przedmiotem projektu było stworzenie mechanizmu filtrującego wiadomości email pod kątem spamu. Realizacja polegała na stworzeniu klasyfikatora, który po "nauczeniu się" na zbiorze treningowym, był w stanie klasyfikować wiadomości do jednej z dwóch kategorii: spam albo nie-spam.
+    W celu osiągnięcia jak największej skuteczności filtrowania wiadomości, wybraliśmy 3 metody klasyfikacji, a następnie porównaliśmy uzyskane za ich pomocą wyniki. W przypadku każdego z algorytmów, postaraliśmy się zbadać wpływ różnych parametrów na jakość klasyfikacji.
+
+
+
+Ad. 2 (szczegółowy opis wykorzystanych algorytmów)
+
+    Do klasyfikacji wiadomości wykorzystaliśmy trzy algorytmy:
+1) naiwny klasyfikator Bayesa - w przypadku tego algorytmu, wykorzystaliśmy gotową implementację w postaci funkcji 'naiveBayes' z biblioteki 'e1071'. Przed tym wyborem, podjęliśmy próbę wykorzystania podobnej funkcji ('NaiveBayes') z biblioteki 'klaR', lecz dawała ona znacznie gorsze rezultaty. Wykorzystywana przez nas implementacja posiada jedną wadę - w przypadku tak dużego zbioru przetwarzanych danych, prawdopodobieństwa a posteriori zwracane przez funkcję 'predict' w zdecydowanej większości przypadków miały wartość 'NaN'. Błąd ten (jak przypuszczamy - w bibliotece e1071) uniemożliwił nam stworzenie wykresów ROC dla klasyfikacji bayesowskiej. Zarówno do uczenia, jak i do klasyfikacji, dane przekształcane były do postaci macierzy binarnej, a więc pod uwagę był brany jedynie fakt wystąpienia danego słowa w dokumencie, lub jego brak. Dane w takiej postaci dawały lepsze wyniki klasyfikacji, niż macierz przechowująca ilość wystąpień słów w dokumentach.
+
+2) knn
+TODO
+
+3) knn + lsa
+TODO
+
+
+Ad. 3 (opis stosowanej procedury eksperymentalnej)
+
+
+Charakterystyka zbiorów danych
+
+    Danymi do uczenia oraz testowania były zbiory "surowych" wiadomości email pochodzące ze SpamAssassin Public Corpus. Wśród nich występują zestawy wiadomości oznaczonych jako niepożądane ("spam") oraz zestawy wiadomości pożądanych ("ham"). Wiadomości pożądane są dodatkowo podzielone wg trudności, tzn. podobieństwa do wiadomości niepożądanych, na łatwe i trudne. Zbiory uczące oraz testowe były tworzone losowo spośród wszystkich wiadomości, lecz zachowując pożądaną proporcję spamu w stosunku do nie-spamu.
+    W ramach przetwarzania wstępnego usunięte zostały wszelkie nagłówki wiadomości email pozostawiając do analizy jedynie treść. Podczas wczytywania wiadomości (z wykorzystaniem zmodyfikowanej funkcji 'textmatrix') usuwane były nieistotne z punktu widzenia treści słowa ("stopwords"), słowa zbyt rzadkie oraz zbyt powszechne (progi określane były procentowo, w większości przypadków jako występujące w odpowiednio <1% i >65% wszystkich wiadomości). Na pozostałych słowach przeprowadzany był "stemming", aby ujednolicić wiele odmian tych samych słów.
+
+
+
+Parametry algorytmów, których wpływ na wyniki był badany
+
+    Podczas eksperymentów sprawdzany był wpływ różnych parametrów wykorzystywanych algorytmów na jakość klasyfikacji. W przypadku różnych algorytmów będą to
+różne parametry:
+1) naiwny klasyfikator bayesowski
+    - prawdopodobieństwo a-priori spamu - ze wzgledu na wykorzystanie już istniejącej implementacji tego klasyfikatora, wpływ prawdopodobieństwa a-priori symulowany był poprzez zwiększenie ilości wiadomości niepożądanych w stosunku do pożądanych w zbiorze treningowym. Przetestowane zostały trzy warianty: stosunek 1:1, 3:2 oraz 7:3. 
+    - próg prawdopodobieństwa - prawdopobodobieństwo wystąpienia słowa w dokumencie w przypadku jego braku. Sprawdzone zostały trzy wartości: 0.005, 0.01 oraz 0.05.
+
+2) kNN - TODO
+
+3) paratmetry algorytmu LSA - TODO
+
+
+
+Sposób oceny jakości modeli
+
+    Oceniana była przede wszystkim skuteczność klasyfikatora, a więc procent poprawnych odpowiedzi na zbiorze testowym. W przypadku naiwnego klasyfikatora bayesowskiego, podjęliśmy dodatkowo próbę sprawdzenia zmiany ilości błędów false-positive i false-negative przy zmianie prawdopodobnieństw a-priori spamu.
+
+
+
+Uzyskane wyniki
+
+    Testy ogólne wszystkich algorytmów odbywały się wykorzystując technikę krzyżowej walidacji na zbiorze danych zawierającym 2000 dokumentów. Testy wpływu poszczególnych parametrów na jakość klasyfikacji odbywały się bądź z wykorzystaniem tej samej techniki (knn oraz knn+LSA) lub na zbiorze 1000 dokumentów (naiwny klasyfikator bayesowski). 
+
+1) naiwny klasyfikator bayesowski
+    Dla tego klasyfikatora osiągnięty został wynik w przybliżeniu 92% poprawnych odpowiedzi (91,9839%).
+    Zmiana prawdopodobieństwa a-priori spamu pogarszała podany powyżej wynik. Przy stosunku 3:2 spamu do hamu, skuteczność klasyfikatora spadła do 72%. Dalsze zwiększenie ilosci spamu podczas uczenia do stosunku 7:3 skutkowało uzyskaniem klasyfikatora niemal bezużytecznego - jego skuteczność wyniosła 53%.
+
+2) knn TODO
+
+3) knn+LSA TODO
+
+
+
