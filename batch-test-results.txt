@@ -1,0 +1,526 @@
+Fri Jun  3 11:21:42 2011 Started batch test
+
+Fri Jun  3 11:28:05 2011 Data loaded, summary:
+
+Call:
+load.mail(paths = data.path, samples = samples, shuffle.samples = TRUE, 
+    min.glob.word.freq = 0.01, max.words = max.words)
+
+Loaded:
+ Documents Spam  Ham Unknown Words
+      1996  996 1000       0  1000
+
+Number of words per document:
+ Min  Max     Mean  Std.Dev
+   1 3835 83.33818 159.2103
+
+Number of unique words per document:
+ Min Max     Mean  Std.Dev
+   1 431 45.66383 40.29888
+
+Number of documents per word:
+ Min  MinWord  Max MaxWord   Mean  Std.Dev
+  30 otherwis 1290    http 91.145 105.6966
+Fri Jun  3 11:28:08 2011 Started set 1 
+
+Fri Jun  3 11:28:41 2011Finished alg1, set1, errors so far:
+            [,1] [,2] [,3] [,4] [,5]
+naive.bayes   28    0    0    0    0
+knn.k=3        0    0    0    0    0
+knn.k=7        0    0    0    0    0
+knn.lsa.k=3    0    0    0    0    0
+knn.lsa.k=7    0    0    0    0    0
+Fri Jun  3 11:39:18 2011Finished alg2, set1, errors so far:
+            [,1] [,2] [,3] [,4] [,5]
+naive.bayes   28    0    0    0    0
+knn.k=3       19    0    0    0    0
+knn.k=7        0    0    0    0    0
+knn.lsa.k=3    0    0    0    0    0
+knn.lsa.k=7    0    0    0    0    0
+Fri Jun  3 11:50:00 2011Finished alg3, set1, errors so far:
+            [,1] [,2] [,3] [,4] [,5]
+naive.bayes   28    0    0    0    0
+knn.k=3       19    0    0    0    0
+knn.k=7       17    0    0    0    0
+knn.lsa.k=3    0    0    0    0    0
+knn.lsa.k=7    0    0    0    0    0
+Fri Jun  3 11:50:24 2011Finished alg4, set1, errors so far:
+            [,1] [,2] [,3] [,4] [,5]
+naive.bayes   28    0    0    0    0
+knn.k=3       19    0    0    0    0
+knn.k=7       17    0    0    0    0
+knn.lsa.k=3   14    0    0    0    0
+knn.lsa.k=7    0    0    0    0    0
+Fri Jun  3 11:50:50 2011Finished alg5, set1, errors so far:
+            [,1] [,2] [,3] [,4] [,5]
+naive.bayes   28    0    0    0    0
+knn.k=3       19    0    0    0    0
+knn.k=7       17    0    0    0    0
+knn.lsa.k=3   14    0    0    0    0
+knn.lsa.k=7   12    0    0    0    0
+Fri Jun  3 11:50:50 2011 Started set 2 
+
+Fri Jun  3 11:51:23 2011Finished alg1, set2, errors so far:
+            [,1] [,2] [,3] [,4] [,5]
+naive.bayes   28   47    0    0    0
+knn.k=3       19    0    0    0    0
+knn.k=7       17    0    0    0    0
+knn.lsa.k=3   14    0    0    0    0
+knn.lsa.k=7   12    0    0    0    0
+Fri Jun  3 12:02:04 2011Finished alg2, set2, errors so far:
+            [,1] [,2] [,3] [,4] [,5]
+naive.bayes   28   47    0    0    0
+knn.k=3       19   18    0    0    0
+knn.k=7       17    0    0    0    0
+knn.lsa.k=3   14    0    0    0    0
+knn.lsa.k=7   12    0    0    0    0
+Fri Jun  3 12:12:44 2011Finished alg3, set2, errors so far:
+            [,1] [,2] [,3] [,4] [,5]
+naive.bayes   28   47    0    0    0
+knn.k=3       19   18    0    0    0
+knn.k=7       17   20    0    0    0
+knn.lsa.k=3   14    0    0    0    0
+knn.lsa.k=7   12    0    0    0    0
+Fri Jun  3 12:13:09 2011Finished alg4, set2, errors so far:
+            [,1] [,2] [,3] [,4] [,5]
+naive.bayes   28   47    0    0    0
+knn.k=3       19   18    0    0    0
+knn.k=7       17   20    0    0    0
+knn.lsa.k=3   14   14    0    0    0
+knn.lsa.k=7   12    0    0    0    0
+Fri Jun  3 12:13:34 2011Finished alg5, set2, errors so far:
+            [,1] [,2] [,3] [,4] [,5]
+naive.bayes   28   47    0    0    0
+knn.k=3       19   18    0    0    0
+knn.k=7       17   20    0    0    0
+knn.lsa.k=3   14   14    0    0    0
+knn.lsa.k=7   12   20    0    0    0
+Fri Jun  3 12:13:34 2011 Started set 3 
+
+Fri Jun  3 12:14:07 2011Finished alg1, set3, errors so far:
+            [,1] [,2] [,3] [,4] [,5]
+naive.bayes   28   47   31    0    0
+knn.k=3       19   18    0    0    0
+knn.k=7       17   20    0    0    0
+knn.lsa.k=3   14   14    0    0    0
+knn.lsa.k=7   12   20    0    0    0
+Fri Jun  3 12:23:52 2011Finished alg2, set3, errors so far:
+            [,1] [,2] [,3] [,4] [,5]
+naive.bayes   28   47   31    0    0
+knn.k=3       19   18   13    0    0
+knn.k=7       17   20    0    0    0
+knn.lsa.k=3   14   14    0    0    0
+knn.lsa.k=7   12   20    0    0    0
+Fri Jun  3 12:34:34 2011Finished alg3, set3, errors so far:
+            [,1] [,2] [,3] [,4] [,5]
+naive.bayes   28   47   31    0    0
+knn.k=3       19   18   13    0    0
+knn.k=7       17   20   17    0    0
+knn.lsa.k=3   14   14    0    0    0
+knn.lsa.k=7   12   20    0    0    0
+Fri Jun  3 12:34:59 2011Finished alg4, set3, errors so far:
+            [,1] [,2] [,3] [,4] [,5]
+naive.bayes   28   47   31    0    0
+knn.k=3       19   18   13    0    0
+knn.k=7       17   20   17    0    0
+knn.lsa.k=3   14   14   12    0    0
+knn.lsa.k=7   12   20    0    0    0
+Fri Jun  3 12:35:24 2011Finished alg5, set3, errors so far:
+            [,1] [,2] [,3] [,4] [,5]
+naive.bayes   28   47   31    0    0
+knn.k=3       19   18   13    0    0
+knn.k=7       17   20   17    0    0
+knn.lsa.k=3   14   14   12    0    0
+knn.lsa.k=7   12   20   16    0    0
+Fri Jun  3 12:35:24 2011 Started set 4 
+
+Fri Jun  3 12:35:57 2011Finished alg1, set4, errors so far:
+            [,1] [,2] [,3] [,4] [,5]
+naive.bayes   28   47   31   24    0
+knn.k=3       19   18   13    0    0
+knn.k=7       17   20   17    0    0
+knn.lsa.k=3   14   14   12    0    0
+knn.lsa.k=7   12   20   16    0    0
+Fri Jun  3 12:46:41 2011Finished alg2, set4, errors so far:
+            [,1] [,2] [,3] [,4] [,5]
+naive.bayes   28   47   31   24    0
+knn.k=3       19   18   13   13    0
+knn.k=7       17   20   17    0    0
+knn.lsa.k=3   14   14   12    0    0
+knn.lsa.k=7   12   20   16    0    0
+Fri Jun  3 12:55:12 2011Finished alg3, set4, errors so far:
+            [,1] [,2] [,3] [,4] [,5]
+naive.bayes   28   47   31   24    0
+knn.k=3       19   18   13   13    0
+knn.k=7       17   20   17   25    0
+knn.lsa.k=3   14   14   12    0    0
+knn.lsa.k=7   12   20   16    0    0
+Fri Jun  3 12:55:29 2011Finished alg4, set4, errors so far:
+            [,1] [,2] [,3] [,4] [,5]
+naive.bayes   28   47   31   24    0
+knn.k=3       19   18   13   13    0
+knn.k=7       17   20   17   25    0
+knn.lsa.k=3   14   14   12   15    0
+knn.lsa.k=7   12   20   16    0    0
+Fri Jun  3 12:55:47 2011Finished alg5, set4, errors so far:
+            [,1] [,2] [,3] [,4] [,5]
+naive.bayes   28   47   31   24    0
+knn.k=3       19   18   13   13    0
+knn.k=7       17   20   17   25    0
+knn.lsa.k=3   14   14   12   15    0
+knn.lsa.k=7   12   20   16   18    0
+Fri Jun  3 12:55:47 2011 Started set 5 
+
+Fri Jun  3 12:56:10 2011Finished alg1, set5, errors so far:
+            [,1] [,2] [,3] [,4] [,5]
+naive.bayes   28   47   31   24   30
+knn.k=3       19   18   13   13    0
+knn.k=7       17   20   17   25    0
+knn.lsa.k=3   14   14   12   15    0
+knn.lsa.k=7   12   20   16   18    0
+Fri Jun  3 13:05:29 2011Finished alg2, set5, errors so far:
+            [,1] [,2] [,3] [,4] [,5]
+naive.bayes   28   47   31   24   30
+knn.k=3       19   18   13   13   12
+knn.k=7       17   20   17   25    0
+knn.lsa.k=3   14   14   12   15    0
+knn.lsa.k=7   12   20   16   18    0
+Fri Jun  3 13:16:12 2011Finished alg3, set5, errors so far:
+            [,1] [,2] [,3] [,4] [,5]
+naive.bayes   28   47   31   24   30
+knn.k=3       19   18   13   13   12
+knn.k=7       17   20   17   25   15
+knn.lsa.k=3   14   14   12   15    0
+knn.lsa.k=7   12   20   16   18    0
+Fri Jun  3 13:16:36 2011Finished alg4, set5, errors so far:
+            [,1] [,2] [,3] [,4] [,5]
+naive.bayes   28   47   31   24   30
+knn.k=3       19   18   13   13   12
+knn.k=7       17   20   17   25   15
+knn.lsa.k=3   14   14   12   15   16
+knn.lsa.k=7   12   20   16   18    0
+Fri Jun  3 13:17:01 2011Finished alg5, set5, errors so far:
+            [,1] [,2] [,3] [,4] [,5]
+naive.bayes   28   47   31   24   30
+knn.k=3       19   18   13   13   12
+knn.k=7       17   20   17   25   15
+knn.lsa.k=3   14   14   12   15   16
+knn.lsa.k=7   12   20   16   18   14
+            [,1] [,2] [,3] [,4] [,5]
+naive.bayes   28   47   31   24   30
+knn.k=3       19   18   13   13   12
+knn.k=7       17   20   17   25   15
+knn.lsa.k=3   14   14   12   15   16
+knn.lsa.k=7   12   20   16   18   14
+naive.bayes     knn.k=3     knn.k=7 knn.lsa.k=3 knn.lsa.k=7 
+  0.9198397   0.9624248   0.9529058   0.9644289   0.9599198 
+
+
+-----------------------------------------------------------------------------------------------------------------
+
+
+Fri Jun  3 13:59:43 2011 Started batch test
+
+Fri Jun  3 14:05:50 2011 Data loaded, summary:
+
+Call:
+load.mail(paths = data.path, samples = samples, shuffle.samples = TRUE, 
+    min.glob.word.freq = 0.01, max.words = max.words)
+
+Loaded:
+ Documents Spam  Ham Unknown Words
+      1963  963 1000       0  1000
+
+Number of words per document:
+ Min  Max     Mean  Std.Dev
+   1 3411 82.19613 131.7419
+
+Number of unique words per document:
+ Min Max     Mean  Std.Dev
+   1 508 46.44727 41.63725
+
+Number of documents per word:
+ Min MinWord  Max MaxWord   Mean  Std.Dev
+  30     ten 1226     com 91.176 99.15561
+Fri Jun  3 14:05:53 2011 Started set 1 
+
+Fri Jun  3 14:06:18 2011 Finished knn.lsa.k=3.lsa.share=0.5 for set1, errors so far:
+                          [,1] [,2] [,3] [,4] [,5]
+knn.lsa.k=3.lsa.share=0.5   21    0    0    0    0
+knn.lsa.k=7.lsa.share=0.5    0    0    0    0    0
+knn.lsa.k=3.lsa.share=0.7    0    0    0    0    0
+knn.lsa.k=7.lsa.share=0.7    0    0    0    0    0
+knn.lsa.k=3.lsa.share=0.9    0    0    0    0    0
+knn.lsa.k=7.lsa.share=0.9    0    0    0    0    0
+Fri Jun  3 14:06:43 2011 Finished knn.lsa.k=7.lsa.share=0.5 for set1, errors so far:
+                          [,1] [,2] [,3] [,4] [,5]
+knn.lsa.k=3.lsa.share=0.5   21    0    0    0    0
+knn.lsa.k=7.lsa.share=0.5   22    0    0    0    0
+knn.lsa.k=3.lsa.share=0.7    0    0    0    0    0
+knn.lsa.k=7.lsa.share=0.7    0    0    0    0    0
+knn.lsa.k=3.lsa.share=0.9    0    0    0    0    0
+knn.lsa.k=7.lsa.share=0.9    0    0    0    0    0
+Fri Jun  3 14:07:14 2011 Finished knn.lsa.k=3.lsa.share=0.7 for set1, errors so far:
+                          [,1] [,2] [,3] [,4] [,5]
+knn.lsa.k=3.lsa.share=0.5   21    0    0    0    0
+knn.lsa.k=7.lsa.share=0.5   22    0    0    0    0
+knn.lsa.k=3.lsa.share=0.7   22    0    0    0    0
+knn.lsa.k=7.lsa.share=0.7    0    0    0    0    0
+knn.lsa.k=3.lsa.share=0.9    0    0    0    0    0
+knn.lsa.k=7.lsa.share=0.9    0    0    0    0    0
+Fri Jun  3 14:07:39 2011 Finished knn.lsa.k=7.lsa.share=0.7 for set1, errors so far:
+                          [,1] [,2] [,3] [,4] [,5]
+knn.lsa.k=3.lsa.share=0.5   21    0    0    0    0
+knn.lsa.k=7.lsa.share=0.5   22    0    0    0    0
+knn.lsa.k=3.lsa.share=0.7   22    0    0    0    0
+knn.lsa.k=7.lsa.share=0.7   18    0    0    0    0
+knn.lsa.k=3.lsa.share=0.9    0    0    0    0    0
+knn.lsa.k=7.lsa.share=0.9    0    0    0    0    0
+Fri Jun  3 14:08:25 2011 Finished knn.lsa.k=3.lsa.share=0.9 for set1, errors so far:
+                          [,1] [,2] [,3] [,4] [,5]
+knn.lsa.k=3.lsa.share=0.5   21    0    0    0    0
+knn.lsa.k=7.lsa.share=0.5   22    0    0    0    0
+knn.lsa.k=3.lsa.share=0.7   22    0    0    0    0
+knn.lsa.k=7.lsa.share=0.7   18    0    0    0    0
+knn.lsa.k=3.lsa.share=0.9   24    0    0    0    0
+knn.lsa.k=7.lsa.share=0.9    0    0    0    0    0
+Fri Jun  3 14:09:11 2011 Finished knn.lsa.k=7.lsa.share=0.9 for set1, errors so far:
+                          [,1] [,2] [,3] [,4] [,5]
+knn.lsa.k=3.lsa.share=0.5   21    0    0    0    0
+knn.lsa.k=7.lsa.share=0.5   22    0    0    0    0
+knn.lsa.k=3.lsa.share=0.7   22    0    0    0    0
+knn.lsa.k=7.lsa.share=0.7   18    0    0    0    0
+knn.lsa.k=3.lsa.share=0.9   24    0    0    0    0
+knn.lsa.k=7.lsa.share=0.9   19    0    0    0    0
+Fri Jun  3 14:09:11 2011 Started set 2 
+
+Fri Jun  3 14:09:32 2011 Finished knn.lsa.k=3.lsa.share=0.5 for set2, errors so far:
+                          [,1] [,2] [,3] [,4] [,5]
+knn.lsa.k=3.lsa.share=0.5   21   21    0    0    0
+knn.lsa.k=7.lsa.share=0.5   22    0    0    0    0
+knn.lsa.k=3.lsa.share=0.7   22    0    0    0    0
+knn.lsa.k=7.lsa.share=0.7   18    0    0    0    0
+knn.lsa.k=3.lsa.share=0.9   24    0    0    0    0
+knn.lsa.k=7.lsa.share=0.9   19    0    0    0    0
+Fri Jun  3 14:09:57 2011 Finished knn.lsa.k=7.lsa.share=0.5 for set2, errors so far:
+                          [,1] [,2] [,3] [,4] [,5]
+knn.lsa.k=3.lsa.share=0.5   21   21    0    0    0
+knn.lsa.k=7.lsa.share=0.5   22   20    0    0    0
+knn.lsa.k=3.lsa.share=0.7   22    0    0    0    0
+knn.lsa.k=7.lsa.share=0.7   18    0    0    0    0
+knn.lsa.k=3.lsa.share=0.9   24    0    0    0    0
+knn.lsa.k=7.lsa.share=0.9   19    0    0    0    0
+Fri Jun  3 14:10:29 2011 Finished knn.lsa.k=3.lsa.share=0.7 for set2, errors so far:
+                          [,1] [,2] [,3] [,4] [,5]
+knn.lsa.k=3.lsa.share=0.5   21   21    0    0    0
+knn.lsa.k=7.lsa.share=0.5   22   20    0    0    0
+knn.lsa.k=3.lsa.share=0.7   22   25    0    0    0
+knn.lsa.k=7.lsa.share=0.7   18    0    0    0    0
+knn.lsa.k=3.lsa.share=0.9   24    0    0    0    0
+knn.lsa.k=7.lsa.share=0.9   19    0    0    0    0
+Fri Jun  3 14:11:00 2011 Finished knn.lsa.k=7.lsa.share=0.7 for set2, errors so far:
+                          [,1] [,2] [,3] [,4] [,5]
+knn.lsa.k=3.lsa.share=0.5   21   21    0    0    0
+knn.lsa.k=7.lsa.share=0.5   22   20    0    0    0
+knn.lsa.k=3.lsa.share=0.7   22   25    0    0    0
+knn.lsa.k=7.lsa.share=0.7   18   22    0    0    0
+knn.lsa.k=3.lsa.share=0.9   24    0    0    0    0
+knn.lsa.k=7.lsa.share=0.9   19    0    0    0    0
+Fri Jun  3 14:11:46 2011 Finished knn.lsa.k=3.lsa.share=0.9 for set2, errors so far:
+                          [,1] [,2] [,3] [,4] [,5]
+knn.lsa.k=3.lsa.share=0.5   21   21    0    0    0
+knn.lsa.k=7.lsa.share=0.5   22   20    0    0    0
+knn.lsa.k=3.lsa.share=0.7   22   25    0    0    0
+knn.lsa.k=7.lsa.share=0.7   18   22    0    0    0
+knn.lsa.k=3.lsa.share=0.9   24   22    0    0    0
+knn.lsa.k=7.lsa.share=0.9   19    0    0    0    0
+Fri Jun  3 14:12:32 2011 Finished knn.lsa.k=7.lsa.share=0.9 for set2, errors so far:
+                          [,1] [,2] [,3] [,4] [,5]
+knn.lsa.k=3.lsa.share=0.5   21   21    0    0    0
+knn.lsa.k=7.lsa.share=0.5   22   20    0    0    0
+knn.lsa.k=3.lsa.share=0.7   22   25    0    0    0
+knn.lsa.k=7.lsa.share=0.7   18   22    0    0    0
+knn.lsa.k=3.lsa.share=0.9   24   22    0    0    0
+knn.lsa.k=7.lsa.share=0.9   19   22    0    0    0
+Fri Jun  3 14:12:32 2011 Started set 3 
+
+Fri Jun  3 14:12:57 2011 Finished knn.lsa.k=3.lsa.share=0.5 for set3, errors so far:
+                          [,1] [,2] [,3] [,4] [,5]
+knn.lsa.k=3.lsa.share=0.5   21   21   13    0    0
+knn.lsa.k=7.lsa.share=0.5   22   20    0    0    0
+knn.lsa.k=3.lsa.share=0.7   22   25    0    0    0
+knn.lsa.k=7.lsa.share=0.7   18   22    0    0    0
+knn.lsa.k=3.lsa.share=0.9   24   22    0    0    0
+knn.lsa.k=7.lsa.share=0.9   19   22    0    0    0
+Fri Jun  3 14:13:22 2011 Finished knn.lsa.k=7.lsa.share=0.5 for set3, errors so far:
+                          [,1] [,2] [,3] [,4] [,5]
+knn.lsa.k=3.lsa.share=0.5   21   21   13    0    0
+knn.lsa.k=7.lsa.share=0.5   22   20   13    0    0
+knn.lsa.k=3.lsa.share=0.7   22   25    0    0    0
+knn.lsa.k=7.lsa.share=0.7   18   22    0    0    0
+knn.lsa.k=3.lsa.share=0.9   24   22    0    0    0
+knn.lsa.k=7.lsa.share=0.9   19   22    0    0    0
+Fri Jun  3 14:13:53 2011 Finished knn.lsa.k=3.lsa.share=0.7 for set3, errors so far:
+                          [,1] [,2] [,3] [,4] [,5]
+knn.lsa.k=3.lsa.share=0.5   21   21   13    0    0
+knn.lsa.k=7.lsa.share=0.5   22   20   13    0    0
+knn.lsa.k=3.lsa.share=0.7   22   25   16    0    0
+knn.lsa.k=7.lsa.share=0.7   18   22    0    0    0
+knn.lsa.k=3.lsa.share=0.9   24   22    0    0    0
+knn.lsa.k=7.lsa.share=0.9   19   22    0    0    0
+Fri Jun  3 14:14:25 2011 Finished knn.lsa.k=7.lsa.share=0.7 for set3, errors so far:
+                          [,1] [,2] [,3] [,4] [,5]
+knn.lsa.k=3.lsa.share=0.5   21   21   13    0    0
+knn.lsa.k=7.lsa.share=0.5   22   20   13    0    0
+knn.lsa.k=3.lsa.share=0.7   22   25   16    0    0
+knn.lsa.k=7.lsa.share=0.7   18   22   16    0    0
+knn.lsa.k=3.lsa.share=0.9   24   22    0    0    0
+knn.lsa.k=7.lsa.share=0.9   19   22    0    0    0
+Fri Jun  3 14:15:10 2011 Finished knn.lsa.k=3.lsa.share=0.9 for set3, errors so far:
+                          [,1] [,2] [,3] [,4] [,5]
+knn.lsa.k=3.lsa.share=0.5   21   21   13    0    0
+knn.lsa.k=7.lsa.share=0.5   22   20   13    0    0
+knn.lsa.k=3.lsa.share=0.7   22   25   16    0    0
+knn.lsa.k=7.lsa.share=0.7   18   22   16    0    0
+knn.lsa.k=3.lsa.share=0.9   24   22   14    0    0
+knn.lsa.k=7.lsa.share=0.9   19   22    0    0    0
+Fri Jun  3 14:15:56 2011 Finished knn.lsa.k=7.lsa.share=0.9 for set3, errors so far:
+                          [,1] [,2] [,3] [,4] [,5]
+knn.lsa.k=3.lsa.share=0.5   21   21   13    0    0
+knn.lsa.k=7.lsa.share=0.5   22   20   13    0    0
+knn.lsa.k=3.lsa.share=0.7   22   25   16    0    0
+knn.lsa.k=7.lsa.share=0.7   18   22   16    0    0
+knn.lsa.k=3.lsa.share=0.9   24   22   14    0    0
+knn.lsa.k=7.lsa.share=0.9   19   22   16    0    0
+Fri Jun  3 14:15:56 2011 Started set 4 
+
+Fri Jun  3 14:16:21 2011 Finished knn.lsa.k=3.lsa.share=0.5 for set4, errors so far:
+                          [,1] [,2] [,3] [,4] [,5]
+knn.lsa.k=3.lsa.share=0.5   21   21   13   15    0
+knn.lsa.k=7.lsa.share=0.5   22   20   13    0    0
+knn.lsa.k=3.lsa.share=0.7   22   25   16    0    0
+knn.lsa.k=7.lsa.share=0.7   18   22   16    0    0
+knn.lsa.k=3.lsa.share=0.9   24   22   14    0    0
+knn.lsa.k=7.lsa.share=0.9   19   22   16    0    0
+Fri Jun  3 14:16:46 2011 Finished knn.lsa.k=7.lsa.share=0.5 for set4, errors so far:
+                          [,1] [,2] [,3] [,4] [,5]
+knn.lsa.k=3.lsa.share=0.5   21   21   13   15    0
+knn.lsa.k=7.lsa.share=0.5   22   20   13   16    0
+knn.lsa.k=3.lsa.share=0.7   22   25   16    0    0
+knn.lsa.k=7.lsa.share=0.7   18   22   16    0    0
+knn.lsa.k=3.lsa.share=0.9   24   22   14    0    0
+knn.lsa.k=7.lsa.share=0.9   19   22   16    0    0
+Fri Jun  3 14:17:17 2011 Finished knn.lsa.k=3.lsa.share=0.7 for set4, errors so far:
+                          [,1] [,2] [,3] [,4] [,5]
+knn.lsa.k=3.lsa.share=0.5   21   21   13   15    0
+knn.lsa.k=7.lsa.share=0.5   22   20   13   16    0
+knn.lsa.k=3.lsa.share=0.7   22   25   16   18    0
+knn.lsa.k=7.lsa.share=0.7   18   22   16    0    0
+knn.lsa.k=3.lsa.share=0.9   24   22   14    0    0
+knn.lsa.k=7.lsa.share=0.9   19   22   16    0    0
+Fri Jun  3 14:17:49 2011 Finished knn.lsa.k=7.lsa.share=0.7 for set4, errors so far:
+                          [,1] [,2] [,3] [,4] [,5]
+knn.lsa.k=3.lsa.share=0.5   21   21   13   15    0
+knn.lsa.k=7.lsa.share=0.5   22   20   13   16    0
+knn.lsa.k=3.lsa.share=0.7   22   25   16   18    0
+knn.lsa.k=7.lsa.share=0.7   18   22   16   15    0
+knn.lsa.k=3.lsa.share=0.9   24   22   14    0    0
+knn.lsa.k=7.lsa.share=0.9   19   22   16    0    0
+Fri Jun  3 14:18:35 2011 Finished knn.lsa.k=3.lsa.share=0.9 for set4, errors so far:
+                          [,1] [,2] [,3] [,4] [,5]
+knn.lsa.k=3.lsa.share=0.5   21   21   13   15    0
+knn.lsa.k=7.lsa.share=0.5   22   20   13   16    0
+knn.lsa.k=3.lsa.share=0.7   22   25   16   18    0
+knn.lsa.k=7.lsa.share=0.7   18   22   16   15    0
+knn.lsa.k=3.lsa.share=0.9   24   22   14   15    0
+knn.lsa.k=7.lsa.share=0.9   19   22   16    0    0
+Fri Jun  3 14:19:22 2011 Finished knn.lsa.k=7.lsa.share=0.9 for set4, errors so far:
+                          [,1] [,2] [,3] [,4] [,5]
+knn.lsa.k=3.lsa.share=0.5   21   21   13   15    0
+knn.lsa.k=7.lsa.share=0.5   22   20   13   16    0
+knn.lsa.k=3.lsa.share=0.7   22   25   16   18    0
+knn.lsa.k=7.lsa.share=0.7   18   22   16   15    0
+knn.lsa.k=3.lsa.share=0.9   24   22   14   15    0
+knn.lsa.k=7.lsa.share=0.9   19   22   16   17    0
+Fri Jun  3 14:19:22 2011 Started set 5 
+
+Fri Jun  3 14:19:47 2011 Finished knn.lsa.k=3.lsa.share=0.5 for set5, errors so far:
+                          [,1] [,2] [,3] [,4] [,5]
+knn.lsa.k=3.lsa.share=0.5   21   21   13   15   21
+knn.lsa.k=7.lsa.share=0.5   22   20   13   16    0
+knn.lsa.k=3.lsa.share=0.7   22   25   16   18    0
+knn.lsa.k=7.lsa.share=0.7   18   22   16   15    0
+knn.lsa.k=3.lsa.share=0.9   24   22   14   15    0
+knn.lsa.k=7.lsa.share=0.9   19   22   16   17    0
+Fri Jun  3 14:20:12 2011 Finished knn.lsa.k=7.lsa.share=0.5 for set5, errors so far:
+                          [,1] [,2] [,3] [,4] [,5]
+knn.lsa.k=3.lsa.share=0.5   21   21   13   15   21
+knn.lsa.k=7.lsa.share=0.5   22   20   13   16   23
+knn.lsa.k=3.lsa.share=0.7   22   25   16   18    0
+knn.lsa.k=7.lsa.share=0.7   18   22   16   15    0
+knn.lsa.k=3.lsa.share=0.9   24   22   14   15    0
+knn.lsa.k=7.lsa.share=0.9   19   22   16   17    0
+Fri Jun  3 14:20:43 2011 Finished knn.lsa.k=3.lsa.share=0.7 for set5, errors so far:
+                          [,1] [,2] [,3] [,4] [,5]
+knn.lsa.k=3.lsa.share=0.5   21   21   13   15   21
+knn.lsa.k=7.lsa.share=0.5   22   20   13   16   23
+knn.lsa.k=3.lsa.share=0.7   22   25   16   18   18
+knn.lsa.k=7.lsa.share=0.7   18   22   16   15    0
+knn.lsa.k=3.lsa.share=0.9   24   22   14   15    0
+knn.lsa.k=7.lsa.share=0.9   19   22   16   17    0
+Fri Jun  3 14:21:15 2011 Finished knn.lsa.k=7.lsa.share=0.7 for set5, errors so far:
+                          [,1] [,2] [,3] [,4] [,5]
+knn.lsa.k=3.lsa.share=0.5   21   21   13   15   21
+knn.lsa.k=7.lsa.share=0.5   22   20   13   16   23
+knn.lsa.k=3.lsa.share=0.7   22   25   16   18   18
+knn.lsa.k=7.lsa.share=0.7   18   22   16   15   20
+knn.lsa.k=3.lsa.share=0.9   24   22   14   15    0
+knn.lsa.k=7.lsa.share=0.9   19   22   16   17    0
+Fri Jun  3 14:22:02 2011 Finished knn.lsa.k=3.lsa.share=0.9 for set5, errors so far:
+                          [,1] [,2] [,3] [,4] [,5]
+knn.lsa.k=3.lsa.share=0.5   21   21   13   15   21
+knn.lsa.k=7.lsa.share=0.5   22   20   13   16   23
+knn.lsa.k=3.lsa.share=0.7   22   25   16   18   18
+knn.lsa.k=7.lsa.share=0.7   18   22   16   15   20
+knn.lsa.k=3.lsa.share=0.9   24   22   14   15   20
+knn.lsa.k=7.lsa.share=0.9   19   22   16   17    0
+Fri Jun  3 14:22:48 2011 Finished knn.lsa.k=7.lsa.share=0.9 for set5, errors so far:
+                          [,1] [,2] [,3] [,4] [,5]
+knn.lsa.k=3.lsa.share=0.5   21   21   13   15   21
+knn.lsa.k=7.lsa.share=0.5   22   20   13   16   23
+knn.lsa.k=3.lsa.share=0.7   22   25   16   18   18
+knn.lsa.k=7.lsa.share=0.7   18   22   16   15   20
+knn.lsa.k=3.lsa.share=0.9   24   22   14   15   20
+knn.lsa.k=7.lsa.share=0.9   19   22   16   17   19
+Fri Jun  3 14:22:48 2011 
+Finished batch test
+
+Errors per set:
+                          [,1] [,2] [,3] [,4] [,5]
+knn.lsa.k=3.lsa.share=0.5   21   21   13   15   21
+knn.lsa.k=7.lsa.share=0.5   22   20   13   16   23
+knn.lsa.k=3.lsa.share=0.7   22   25   16   18   18
+knn.lsa.k=7.lsa.share=0.7   18   22   16   15   20
+knn.lsa.k=3.lsa.share=0.9   24   22   14   15   20
+knn.lsa.k=7.lsa.share=0.9   19   22   16   17   19
+
+Performance:
+                          performance
+knn.lsa.k=3.lsa.share=0.5   0.9536424
+knn.lsa.k=7.lsa.share=0.5   0.9521141
+knn.lsa.k=3.lsa.share=0.7   0.9495670
+knn.lsa.k=7.lsa.share=0.7   0.9536424
+knn.lsa.k=3.lsa.share=0.9   0.9516047
+knn.lsa.k=7.lsa.share=0.9   0.9526235
+
+CPU Time:
+                          total.time
+knn.lsa.k=3.lsa.share=0.5    118.406
+knn.lsa.k=7.lsa.share=0.5    123.408
+knn.lsa.k=3.lsa.share=0.7    155.218
+knn.lsa.k=7.lsa.share=0.7    150.669
+knn.lsa.k=3.lsa.share=0.9    227.643
+knn.lsa.k=7.lsa.share=0.9    228.971
+
+
+
