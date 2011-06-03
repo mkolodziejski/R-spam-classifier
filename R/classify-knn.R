@@ -2,6 +2,8 @@
 # Author: Marek Skrajnowski
 ###############################################################################
 
+library(knnflex)
+
 # TODO: Move source file dependancies to the package index
 source("load-mail.R")
 
