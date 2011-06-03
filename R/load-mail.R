@@ -33,7 +33,8 @@ load.mail = function(paths, samples,
 								shuffle.samples = FALSE, 
 								min.word.length = 3, max.word.length = FALSE, 
 								min.doc.word.count = 1, max.doc.word.count = FALSE, 
-								min.glob.word.freq = 0.01, max.glob.word.freq = 0.65) {
+								min.glob.word.freq = 0.01, max.glob.word.freq = 0.65,
+								max.words = FALSE) {
 	
 	# create a list of files in given paths
 	files = c()	
@@ -114,13 +115,26 @@ load.mail = function(paths, samples,
 			removeNumbers = FALSE, removeXML = FALSE
 			);
 	
-	tmatrix = tmatrix[,colSums(tmatrix)>0]
-			
-	# transpose tmatrix so that attributes (words) are in columns and samples (documents) are in rows
-	tmatrix = t(tmatrix)
 	# change the class of tmatrix to a regular matrix, which it actually is
 	class(tmatrix) = "matrix"
-
+	
+	# transpose tmatrix so that attributes (words) are in columns and samples (documents) are in rows
+	tmatrix = t(tmatrix)
+			
+	if(is.numeric(max.words)) {
+		bin.matrix = (tmatrix>0)*1
+		word.counts = colSums(bin.matrix)
+		remove(bin.matrix)
+		
+		# sort words by importance
+		word.rank = length(word.counts) - rank(word.counts, ties.meth = "first") + 1
+		# leave only max.words important words
+		important.words = which( word.rank <= max.words)
+		tmatrix = tmatrix[,important.words]	
+	}
+			
+	tmatrix = tmatrix[rowSums(tmatrix)>0,]
+			
 	# create the final classes vector
 	file.names = basename(dimnames(tmatrix)[[1]])
 	classes = rep(NA, length(file.names))
@@ -199,15 +213,15 @@ print.summary.load.mail = function(x, ...) {
 
 # return a normalized (by the number of words per document) textmatrix
 normalize.mail.data = function(mail.data) {
-		tmatrix = mail.data[-1]
+		tmatrix = mail.data[,-1]
 		words.in.docs = rowSums(tmatrix)
-		mail.data[-1] = tmatrix / rep(words.in.docs, times=dim(tmatrix)[2])
+		mail.data[,-1] = tmatrix / rep(words.in.docs, times=dim(tmatrix)[2])
 		return(mail.data)
 }
 
 # return a binary textmatrix
 binary.mail.data = function(mail.data) {
-		mail.data[-1] = as.numeric( mail.data[-1] > 0 )
+		mail.data[,-1] = (mail.data[,-1] > 0)*1
 		return(mail.data)
 }
 
