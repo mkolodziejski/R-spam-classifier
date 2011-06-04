@@ -146,4 +146,224 @@ $FPrate
 attr(,"class")
 [1] "test.naiveBayes.e1071"
 
+------------------------------------------------------
+
+R version 2.13.0 (2011-04-13)
+Copyright (C) 2011 The R Foundation for Statistical Computing
+ISBN 3-900051-07-0
+Platform: x86_64-redhat-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> source("test.R")
+Loading required package: Snowball
+Loading required package: RWeka
+Loading required package: class
+Started: Sat Jun  4 02:10:31 2011 
+
+[1] "\n1."
+Error in basename(files) : a character vector argument expected
+In addition: Warning message:
+In load.mail(c(dataPath), samples = samplesNum, shuffle.samples = TRUE,  :
+  Path doesnt exist: /home/kouodziey/workspace/R-spam-classifier/Data/spamassasin
+> source("test.R")
+Started: Sat Jun  4 02:11:14 2011 
+
+[1] "\n1."
+Trying to add database driver (JDBC): RmiJdbc.RJDriver - Warning, not in CLASSPATH?
+Trying to add database driver (JDBC): jdbc.idbDriver - Warning, not in CLASSPATH?
+Trying to add database driver (JDBC): org.gjt.mm.mysql.Driver - Warning, not in CLASSPATH?
+Trying to add database driver (JDBC): com.mckoi.JDBCDriver - Warning, not in CLASSPATH?
+Trying to add database driver (JDBC): org.hsqldb.jdbcDriver - Warning, not in CLASSPATH?
+[KnowledgeFlow] Loading properties and plugins...
+[KnowledgeFlow] Initializing KF...
+^C
+Java requested System.exit(130), closing R.
+[marek@marek-quad R]$ R
+
+R version 2.13.0 (2011-04-13)
+Copyright (C) 2011 The R Foundation for Statistical Computing
+ISBN 3-900051-07-0
+Platform: x86_64-redhat-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> 
+> source("test.R")
+Loading required package: Snowball
+Loading required package: RWeka
+Loading required package: class
+Started: Sat Jun  4 02:12:12 2011 
+
+
+1.
+Trying to add database driver (JDBC): RmiJdbc.RJDriver - Warning, not in CLASSPATH?
+Trying to add database driver (JDBC): jdbc.idbDriver - Warning, not in CLASSPATH?
+Trying to add database driver (JDBC): org.gjt.mm.mysql.Driver - Warning, not in CLASSPATH?
+Trying to add database driver (JDBC): com.mckoi.JDBCDriver - Warning, not in CLASSPATH?
+Trying to add database driver (JDBC): org.hsqldb.jdbcDriver - Warning, not in CLASSPATH?
+[KnowledgeFlow] Loading properties and plugins...
+[KnowledgeFlow] Initializing KF...
+$load.summary
+Call:
+load.mail(paths = c(dataPath), samples = samplesNum, spam.probability = spam.part, 
+    shuffle.samples = TRUE, min.glob.word.freq = 0.01)
+
+Loaded:
+ Documents Spam  Ham Unknown Words
+      2994 1494 1500       0  1422
+
+Number of words per document:
+ Min  Max     Mean  Std.Dev
+   1 4097 92.07381 164.8423
+
+Number of unique words per document:
+ Min Max     Mean  Std.Dev
+   1 608 51.35037 48.77924
+
+Number of documents per word:
+ Min MinWord  Max MaxWord     Mean  Std.Dev
+  30 picasso 1905    http 108.1174 140.2763
+
+$effectiveness
+[1] 0.8884436
+
+$TP
+[1] 62
+
+$TN
+[1] 71
+
+$FP
+[1] 10
+
+$FN
+[1] 6
+
+$TPrate
+[1] 0.9117647
+
+$FPrate
+[1] 0.1234568
+
+attr(,"class")
+[1] "test.naiveBayes.e1071"
+
+2.
+$load.summary
+Call:
+load.mail(paths = c(dataPath), samples = samplesNum, spam.probability = spam.part, 
+    shuffle.samples = TRUE, min.glob.word.freq = 0.01)
+
+Loaded:
+ Documents Spam  Ham Unknown Words
+      2993 1793 1200       0  1432
+
+Number of words per document:
+ Min  Max     Mean  Std.Dev
+   1 4120 98.35216 176.0527
+
+Number of unique words per document:
+ Min Max    Mean  Std.Dev
+   1 608 53.4838 52.16683
+
+Number of documents per word:
+ Min MinWord  Max MaxWord     Mean Std.Dev
+  30  beauti 1885    http 111.7856 145.619
+
+$effectiveness
+[1] 0.9087872
+
+$TP
+[1] 76
+
+$TN
+[1] 60
+
+$FP
+[1] 4
+
+$FN
+[1] 9
+
+$TPrate
+[1] 0.8941176
+
+$FPrate
+[1] 0.0625
+
+attr(,"class")
+[1] "test.naiveBayes.e1071"
+
+3.
+$load.summary
+Call:
+load.mail(paths = c(dataPath), samples = samplesNum, spam.probability = spam.part, 
+    shuffle.samples = TRUE, min.glob.word.freq = 0.01)
+
+Loaded:
+ Documents Spam Ham Unknown Words
+      2994 2094 900       0  1472
+
+Number of words per document:
+ Min  Max     Mean  Std.Dev
+   1 4145 107.6329 206.5707
+
+Number of unique words per document:
+ Min Max     Mean  Std.Dev
+   1 646 56.63427 56.74623
+
+Number of documents per word:
+ Min   MinWord  Max MaxWord     Mean  Std.Dev
+  30 contribut 1787    http 115.1923 150.3722
+
+$effectiveness
+[1] 0.8483634
+
+$TP
+[1] 80
+
+$TN
+[1] 47
+
+$FP
+[1] 0
+
+$FN
+[1] 22
+
+$TPrate
+[1] 0.7843137
+
+$FPrate
+[1] 0
+
+attr(,"class")
+[1] "test.naiveBayes.e1071"
+
+Finished: Sat Jun  4 02:57:24 2011 
 
