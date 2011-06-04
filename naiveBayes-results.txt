@@ -146,7 +146,9 @@ $FPrate
 attr(,"class")
 [1] "test.naiveBayes.e1071"
 
-------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------
 
 Started: Sat Jun  4 02:12:12 2011 
 
@@ -290,3 +292,203 @@ attr(,"class")
 
 Finished: Sat Jun  4 02:57:24 2011 
 
+---------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------
+
+Started: Sat Jun  4 14:38:58 2011 
+
+
+spam.part=0.4
+training spam probability = 0.400074156470152 should be 0.4 
+test spam probability = 0.491638795986622 should be 0.5
+$load.summary
+Call:
+load.mail(paths = c(dataPath), samples = samplesNum, spam.probability = spam.prob, 
+    shuffle.samples = TRUE, min.glob.word.freq = 0.01)
+
+Loaded:
+ Documents Spam  Ham Unknown Words
+      2997 1227 1770       0  1422
+
+Number of words per document:
+ Min  Max     Mean Std.Dev
+   1 4041 86.98131 195.867
+
+Number of unique words per document:
+ Min Max     Mean  Std.Dev
+   1 651 48.79379 49.86587
+
+Number of documents per word:
+ Min     MinWord  Max MaxWord     Mean  Std.Dev
+  30 partnership 1865     com 102.8376 127.1127
+
+$effectiveness
+[1] 0.8575242
+
+$TP
+[1] 144
+
+$TN
+[1] 113
+
+$FP
+[1] 39
+
+$FN
+[1] 3
+
+$TPrate
+[1] 0.9795918
+
+$FPrate
+[1] 0.2565789
+
+attr(,"class")
+[1] "test.naiveBayes.e1071"
+
+spam.part=0.5
+training spam probability = 0.499814471243043 should be 0.5 
+test spam probability = 0.491638795986622 should be 0.5
+$load.summary
+Call:
+load.mail(paths = c(dataPath), samples = samplesNum, spam.probability = spam.prob, 
+    shuffle.samples = TRUE, min.glob.word.freq = 0.01)
+
+Loaded:
+ Documents Spam  Ham Unknown Words
+      2995 1495 1500       0  1384
+
+Number of words per document:
+ Min  Max     Mean  Std.Dev
+   1 3995 87.74825 150.9517
+
+Number of unique words per document:
+ Min Max     Mean  Std.Dev
+   1 632 49.69883 47.82416
+
+Number of documents per word:
+ Min MinWord  Max MaxWord     Mean  Std.Dev
+  30     ftp 1812     com 107.5491 133.5236
+
+$effectiveness
+[1] 0.8714524
+
+$TP
+[1] 122
+
+$TN
+[1] 139
+
+$FP
+[1] 13
+
+$FN
+[1] 25
+
+$TPrate
+[1] 0.829932
+
+$FPrate
+[1] 0.08552632
+
+attr(,"class")
+[1] "test.naiveBayes.e1071"
+
+spam.part=0.6
+training spam probability = 0.59985152190052 should be 0.6 
+test spam probability = 0.491638795986622 should be 0.5
+$load.summary
+Call:
+load.mail(paths = c(dataPath), samples = samplesNum, spam.probability = spam.prob, 
+    shuffle.samples = TRUE, min.glob.word.freq = 0.01)
+
+Loaded:
+ Documents Spam  Ham Unknown Words
+      2994 1764 1230       0  1418
+
+Number of words per document:
+ Min  Max     Mean  Std.Dev
+   1 4104 97.76386 164.8538
+
+Number of unique words per document:
+ Min Max     Mean  Std.Dev
+   1 613 53.93554 52.39565
+
+Number of documents per word:
+ Min MinWord  Max MaxWord     Mean Std.Dev
+  30     con 1853    http 113.8808 146.562
+
+$effectiveness
+[1] 0.8283233
+
+$TP
+[1] 108
+
+$TN
+[1] 140
+
+$FP
+[1] 12
+
+$FN
+[1] 39
+
+$TPrate
+[1] 0.7346939
+
+$FPrate
+[1] 0.07894737
+
+attr(,"class")
+[1] "test.naiveBayes.e1071"
+
+spam.part=0.7
+training spam probability = 0.699962866691422 should be 0.7 
+test spam probability = 0.491638795986622 should be 0.5
+$load.summary
+Call:
+load.mail(paths = c(dataPath), samples = samplesNum, spam.probability = spam.prob, 
+    shuffle.samples = TRUE, min.glob.word.freq = 0.01)
+
+Loaded:
+ Documents Spam Ham Unknown Words
+      2993 2033 960       0  1434
+
+Number of words per document:
+ Min  Max    Mean  Std.Dev
+   1 4140 102.581 166.3708
+
+Number of unique words per document:
+ Min Max     Mean  Std.Dev
+   1 505 55.53692 52.96441
+
+Number of documents per word:
+ Min MinWord  Max MaxWord     Mean  Std.Dev
+  30   minim 1810    http 115.9149 151.7793
+
+$effectiveness
+[1] 0.7951888
+
+$TP
+[1] 90
+
+$TN
+[1] 148
+
+$FP
+[1] 4
+
+$FN
+[1] 57
+
+$TPrate
+[1] 0.6122449
+
+$FPrate
+[1] 0.02631579
+
+attr(,"class")
+[1] "test.naiveBayes.e1071"
+
+Finished: Sat Jun  4 15:58:54 2011 
