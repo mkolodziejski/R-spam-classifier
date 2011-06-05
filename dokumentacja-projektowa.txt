@@ -46,7 +46,7 @@ Ad. 3 (opis stosowanej procedury eksperymentalnej)
 Charakterystyka zbiorów danych
 
     Danymi do uczenia oraz testowania były zbiory "surowych" wiadomości email pochodzące ze SpamAssassin Public Corpus. Wśród nich występują zestawy wiadomości oznaczonych jako niepożądane ("spam") oraz zestawy wiadomości pożądanych ("ham"). Wiadomości pożądane są dodatkowo podzielone wg trudności, tzn. podobieństwa do wiadomości niepożądanych, na łatwe i trudne. Zbiory uczące oraz testowe były tworzone losowo spośród wszystkich wiadomości, lecz zachowując pożądaną proporcję spamu w stosunku do nie-spamu.
-    W ramach przetwarzania wstępnego usunięte zostały wszelkie nagłówki wiadomości email, liczby oraz ewentualne znaczniki html, pozostawiając do analizy jedynie treść dokumentu. Podczas wczytywania wiadomości (z wykorzystaniem zmodyfikowanej funkcji 'textmatrix' z pakietu 'lsa') usuwane były nieistotne z punktu widzenia treści słowa ("stopwords"), słowa zbyt rzadkie oraz zbyt powszechne (progi określane były procentowo, w większości przypadków jako występujące w odpowiednio <1% i >65% wszystkich wiadomości). Na pozostałych słowach przeprowadzany był "stemming", aby ujednolicić wiele odmian tych samych słów.
+    W ramach przetwarzania wstępnego usunięte zostały wszelkie nagłówki wiadomości email, liczby oraz ewentualne znaczniki html, pozostawiając do analizy jedynie treść dokumentu. Podczas wczytywania wiadomości (z wykorzystaniem zmodyfikowanej funkcji 'textmatrix' z pakietu 'lsa') usuwane były nieistotne z punktu widzenia treści słowa ("stopwords"), słowa zbyt rzadkie oraz zbyt powszechne (progi określane były procentowo, w większości przypadków jako występujące w odpowiednio <1% i >65% wszystkich wiadomości). Na pozostałych słowach przeprowadzany był "stemming", aby ujednolicić wiele odmian tych samych słów. Dokumenty, które po zastosowaniu wyżej wymienionych filtrów nie posiadają rzadnych słów, są odrzucane. 
 	Ostatecznym formatem danych, na którym pracowały klasyfikatory, jest "data frame" zawierający macierz liczby wystąpień słów w poszczególnych dokumentach, przy czym atrybutami (kolumnami) są kolejne słowa spełniające wcześniej wymienione kryteria, a przykładami (wierszami) są załadowane dokumenty.
 
 
@@ -58,20 +58,29 @@ Parametry algorytmów, których wpływ na wyniki był badany
     - próg prawdopodobieństwa - prawdopobodobieństwo wystąpienia słowa w dokumencie w przypadku jego braku. Sprawdzone zostały trzy wartości: 0.005, 0.01 oraz 0.05.
 
 2) Klasyfikator k-Najbliższych Sąsiadów
+	- k - liczba dokumentów z otoczenia klasyfikowanego przykładu, które są brane pod uwagę przy wyznaczaniu kategorii.
+	- miara odległości wyznaczająca sąsiedztwo przykładów - w ramach eksperymentów użyte zostały: 
+		- miara euklidesowa 
+			d = sqrt( suma<i>((ai(x1)-ai(x2))^2) )
+		- miara kosinusowa 
+			d = 1 - (x1*x2) / (|x1|*|x2|)
+	- próg pewnosci wymaganej, aby sklasyfikowac przykład jako "spam"
 
 3) Klasyfikator k-Najbliższych Sąsiadów Pracujący w Przestrzeni LSA
-
+	- miara odległości wyznaczająca sąsiedztwo przykładów w przestrzeni LSA - podobnie jak w poprzednim przypadku zostały wykorzystane miary euklidesowe i kosinusowe
+	 - poziom redukcji wymiarów przestrzeni LSA - wybierane jest tyle największych wartości osobliwych (wskazujących na najważniejsze pseudo-słowa), aby ich suma, w stosunku do sumy wszystkich wartości, przekroczyła porządany próg.
 
 
 Sposób oceny jakości modeli
 
-    Oceniana była przede wszystkim skuteczność klasyfikatora, a więc procent poprawnych odpowiedzi na zbiorze testowym. W przypadku naiwnego klasyfikatora bayesowskiego, podjęliśmy dodatkowo próbę sprawdzenia zmiany ilości błędów false-positive i false-negative przy zmianie prawdopodobnieństw a-priori spamu.
-
+    Oceniana była przede wszystkim skuteczność klasyfikatora, a więc procent poprawnych odpowiedzi na zbiorze testowym. Dodatkowo zmierzona została wydajnośc poszczególnych klasyfikatorów oraz przeanalizowano wpływ parametrów klasyfikatorów na występowanie błędów false-positive i false-negative. W przypadku naiwnego klasyfikatora bayesowskiego, aby wpłynąc na liczbę błędów false-positive wykorzystaliśmy zmianę prawdopodobnieństw a-priori poszczególnych kategorii - "spamu" i "hamu". W przypadku klasyfikatorów najbliższego sąsiedztwa zastosowaliśmy zmianę wymaganej pewności klasyfikacji "spamu".
 
 
 Uzyskane wyniki
 
-    Testy ogólne wszystkich algorytmów odbywały się wykorzystując technikę krzyżowej walidacji na zbiorze danych zawierającym 2000 dokumentów. Testy wpływu poszczególnych parametrów na jakość klasyfikacji odbywały się bądź z wykorzystaniem tej samej techniki (knn oraz knn+LSA) lub na zbiorze 1000 dokumentów (naiwny klasyfikator bayesowski). 
+    Testy wszystkich algorytmów odbywały się wykorzystując 5-krotną krzyżową walidację na zbiorze danych zawierającym 2000 dokumentów i conajwyżej 1000 wykrytych, najczęściej występujących słów. Testy wpływu poszczególnych parametrów na jakość klasyfikacji odbywały się w zależności od wydajności poszczególnych algorytmów, dla klasyfikatora kNN z wykorzystaniem LSA wykorzystany został rozmiar danych podany wyżej, natomiast dla pozostałych algorytmów musiał on zostac ograniczony:
+	- dla naiwnego klasyfikatora bayesowskiego: 1000 dokumentów
+	- dla prostego klasyfikatora kNN: 1000 dokumentów, maksymalnie 750 słów
 
 1) naiwny klasyfikator bayesowski
     Dla tego klasyfikatora osiągnięty został wynik w przybliżeniu 92% poprawnych odpowiedzi (91,9839%).
