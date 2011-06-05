@@ -91,4 +91,5 @@ Uzyskane wyniki
 3) knn+LSA TODO
 
 
-
+Podsumowanie
+	
