@@ -743,3 +743,145 @@ knn.cosine.lsa.k=3.lsa.share=0.5        95.753
 knn.cosine.lsa.k=7.lsa.share=0.5        96.662
 knn.cosine.lsa.k=3.lsa.share=0.7       121.824
 knn.cosine.lsa.k=7.lsa.share=0.7       122.671
+
+
+---------------------------------------------------------------------------------------------------
+
+
+ Sun Jun  5 15:42:18 2011 Started batch test
+
+Sun Jun  5 15:47:46 2011 Data loaded, summary:
+
+Call:
+load.mail(paths = data.path, samples = samples, shuffle.samples = TRUE, 
+    min.glob.word.freq = 0.01, max.words = max.words)
+
+Loaded:
+ Documents Spam  Ham Unknown Words
+      1961  961 1000       0  1000
+
+Number of words per document:
+ Min  Max     Mean  Std.Dev
+   1 3435 86.49312 160.0108
+
+Number of unique words per document:
+ Min Max     Mean Std.Dev
+   1 509 46.92351 44.7354
+
+Number of documents per word:
+ Min MinWord  Max MaxWord   Mean  Std.Dev
+  29     sid 1291    http 92.017 106.3026
+
+ Sun Jun  5 15:47:48 2011 Started set 1 
+
+Sun Jun  5 15:48:08 2011 Finished knn.cosine.lsa.k=11.lsa.share=0.3.majority=4/11 for set 1 (0%)
+Sun Jun  5 15:48:28 2011 Finished knn.cosine.lsa.k=11.lsa.share=0.3.majority=5/11 for set 1 (2%)
+Sun Jun  5 15:48:48 2011 Finished knn.cosine.lsa.k=11.lsa.share=0.3.majority=6/11 for set 1 (5%)
+Sun Jun  5 15:49:09 2011 Finished knn.cosine.lsa.k=11.lsa.share=0.3.majority=7/11 for set 1 (8%)
+Sun Jun  5 15:49:28 2011 Finished knn.cosine.lsa.k=11.lsa.share=0.3.majority=8/11 for set 1 (10%)
+Sun Jun  5 15:49:45 2011 Finished knn.cosine.lsa.k=11.lsa.share=0.3.majority=9/11 for set 1 (12%)
+Sun Jun  5 15:50:05 2011 Finished knn.cosine.lsa.k=11.lsa.share=0.3.majority=10/11 for set 1 (15%)
+Sun Jun  5 15:50:26 2011 Finished knn.cosine.lsa.k=11.lsa.share=0.3.majority=11/11 for set 1 (18%)
+
+ Sun Jun  5 15:50:26 2011 Started set 2 
+
+Sun Jun  5 15:50:46 2011 Finished knn.cosine.lsa.k=11.lsa.share=0.3.majority=4/11 for set 2 (20%)
+Sun Jun  5 15:51:06 2011 Finished knn.cosine.lsa.k=11.lsa.share=0.3.majority=5/11 for set 2 (22%)
+Sun Jun  5 15:51:27 2011 Finished knn.cosine.lsa.k=11.lsa.share=0.3.majority=6/11 for set 2 (25%)
+Sun Jun  5 15:51:47 2011 Finished knn.cosine.lsa.k=11.lsa.share=0.3.majority=7/11 for set 2 (28%)
+Sun Jun  5 15:52:07 2011 Finished knn.cosine.lsa.k=11.lsa.share=0.3.majority=8/11 for set 2 (30%)
+Sun Jun  5 15:52:28 2011 Finished knn.cosine.lsa.k=11.lsa.share=0.3.majority=9/11 for set 2 (32%)
+Sun Jun  5 15:52:48 2011 Finished knn.cosine.lsa.k=11.lsa.share=0.3.majority=10/11 for set 2 (35%)
+Sun Jun  5 15:53:08 2011 Finished knn.cosine.lsa.k=11.lsa.share=0.3.majority=11/11 for set 2 (38%)
+
+ Sun Jun  5 15:53:08 2011 Started set 3 
+
+Sun Jun  5 15:53:29 2011 Finished knn.cosine.lsa.k=11.lsa.share=0.3.majority=4/11 for set 3 (40%)
+Sun Jun  5 15:53:49 2011 Finished knn.cosine.lsa.k=11.lsa.share=0.3.majority=5/11 for set 3 (42%)
+Sun Jun  5 15:54:09 2011 Finished knn.cosine.lsa.k=11.lsa.share=0.3.majority=6/11 for set 3 (45%)
+Sun Jun  5 15:54:30 2011 Finished knn.cosine.lsa.k=11.lsa.share=0.3.majority=7/11 for set 3 (48%)
+Sun Jun  5 15:54:50 2011 Finished knn.cosine.lsa.k=11.lsa.share=0.3.majority=8/11 for set 3 (50%)
+Sun Jun  5 15:55:10 2011 Finished knn.cosine.lsa.k=11.lsa.share=0.3.majority=9/11 for set 3 (52%)
+Sun Jun  5 15:55:31 2011 Finished knn.cosine.lsa.k=11.lsa.share=0.3.majority=10/11 for set 3 (55%)
+Sun Jun  5 15:55:51 2011 Finished knn.cosine.lsa.k=11.lsa.share=0.3.majority=11/11 for set 3 (57%)
+
+ Sun Jun  5 15:55:51 2011 Started set 4 
+
+Sun Jun  5 15:56:11 2011 Finished knn.cosine.lsa.k=11.lsa.share=0.3.majority=4/11 for set 4 (60%)
+Sun Jun  5 15:56:31 2011 Finished knn.cosine.lsa.k=11.lsa.share=0.3.majority=5/11 for set 4 (62%)
+Sun Jun  5 15:56:52 2011 Finished knn.cosine.lsa.k=11.lsa.share=0.3.majority=6/11 for set 4 (65%)
+Sun Jun  5 15:57:12 2011 Finished knn.cosine.lsa.k=11.lsa.share=0.3.majority=7/11 for set 4 (68%)
+Sun Jun  5 15:57:32 2011 Finished knn.cosine.lsa.k=11.lsa.share=0.3.majority=8/11 for set 4 (70%)
+Sun Jun  5 15:57:52 2011 Finished knn.cosine.lsa.k=11.lsa.share=0.3.majority=9/11 for set 4 (72%)
+Sun Jun  5 15:58:12 2011 Finished knn.cosine.lsa.k=11.lsa.share=0.3.majority=10/11 for set 4 (75%)
+Sun Jun  5 15:58:32 2011 Finished knn.cosine.lsa.k=11.lsa.share=0.3.majority=11/11 for set 4 (78%)
+
+ Sun Jun  5 15:58:32 2011 Started set 5 
+
+Sun Jun  5 15:58:52 2011 Finished knn.cosine.lsa.k=11.lsa.share=0.3.majority=4/11 for set 5 (80%)
+Sun Jun  5 15:59:12 2011 Finished knn.cosine.lsa.k=11.lsa.share=0.3.majority=5/11 for set 5 (82%)
+Sun Jun  5 15:59:32 2011 Finished knn.cosine.lsa.k=11.lsa.share=0.3.majority=6/11 for set 5 (85%)
+Sun Jun  5 15:59:52 2011 Finished knn.cosine.lsa.k=11.lsa.share=0.3.majority=7/11 for set 5 (88%)
+Sun Jun  5 16:00:12 2011 Finished knn.cosine.lsa.k=11.lsa.share=0.3.majority=8/11 for set 5 (90%)
+Sun Jun  5 16:00:31 2011 Finished knn.cosine.lsa.k=11.lsa.share=0.3.majority=9/11 for set 5 (92%)
+Sun Jun  5 16:00:51 2011 Finished knn.cosine.lsa.k=11.lsa.share=0.3.majority=10/11 for set 5 (95%)
+Sun Jun  5 16:01:11 2011 Finished knn.cosine.lsa.k=11.lsa.share=0.3.majority=11/11 for set 5 (98%)
+
+ Sun Jun  5 16:01:11 2011 Finished batch test
+
+
+Errors per set:
+                                                 [,1] [,2] [,3] [,4] [,5]
+knn.cosine.lsa.k=11.lsa.share=0.3.majority=4/11    30   21   12   19   20
+knn.cosine.lsa.k=11.lsa.share=0.3.majority=5/11    28   19   11   15   22
+knn.cosine.lsa.k=11.lsa.share=0.3.majority=6/11    25   23   14   16   22
+knn.cosine.lsa.k=11.lsa.share=0.3.majority=7/11    29   24   16   16   21
+knn.cosine.lsa.k=11.lsa.share=0.3.majority=8/11    30   25   20   22   20
+knn.cosine.lsa.k=11.lsa.share=0.3.majority=9/11    34   25   22   23   25
+knn.cosine.lsa.k=11.lsa.share=0.3.majority=10/11   43   39   35   30   36
+knn.cosine.lsa.k=11.lsa.share=0.3.majority=11/11   54   56   46   43   51
+
+Performance:
+                                                 performance
+knn.cosine.lsa.k=11.lsa.share=0.3.majority=4/11    0.9479857
+knn.cosine.lsa.k=11.lsa.share=0.3.majority=5/11    0.9515553
+knn.cosine.lsa.k=11.lsa.share=0.3.majority=6/11    0.9490056
+knn.cosine.lsa.k=11.lsa.share=0.3.majority=7/11    0.9459459
+knn.cosine.lsa.k=11.lsa.share=0.3.majority=8/11    0.9403366
+knn.cosine.lsa.k=11.lsa.share=0.3.majority=9/11    0.9342172
+knn.cosine.lsa.k=11.lsa.share=0.3.majority=10/11   0.9066803
+knn.cosine.lsa.k=11.lsa.share=0.3.majority=11/11   0.8725140
+
+TP Rate:
+                                                   tp.rate
+knn.cosine.lsa.k=11.lsa.share=0.3.majority=4/11  0.9635796
+knn.cosine.lsa.k=11.lsa.share=0.3.majority=5/11  0.9521332
+knn.cosine.lsa.k=11.lsa.share=0.3.majority=6/11  0.9302810
+knn.cosine.lsa.k=11.lsa.share=0.3.majority=7/11  0.9157128
+knn.cosine.lsa.k=11.lsa.share=0.3.majority=8/11  0.8980229
+knn.cosine.lsa.k=11.lsa.share=0.3.majority=9/11  0.8824142
+knn.cosine.lsa.k=11.lsa.share=0.3.majority=10/11 0.8220604
+knn.cosine.lsa.k=11.lsa.share=0.3.majority=11/11 0.7429761
+
+FP Rate:
+                                                 fp.rate
+knn.cosine.lsa.k=11.lsa.share=0.3.majority=4/11    0.067
+knn.cosine.lsa.k=11.lsa.share=0.3.majority=5/11    0.049
+knn.cosine.lsa.k=11.lsa.share=0.3.majority=6/11    0.033
+knn.cosine.lsa.k=11.lsa.share=0.3.majority=7/11    0.025
+knn.cosine.lsa.k=11.lsa.share=0.3.majority=8/11    0.019
+knn.cosine.lsa.k=11.lsa.share=0.3.majority=9/11    0.016
+knn.cosine.lsa.k=11.lsa.share=0.3.majority=10/11   0.012
+knn.cosine.lsa.k=11.lsa.share=0.3.majority=11/11   0.003
+
+CPU Time:
+                                                 total.time
+knn.cosine.lsa.k=11.lsa.share=0.3.majority=4/11      99.914
+knn.cosine.lsa.k=11.lsa.share=0.3.majority=5/11     100.132
+knn.cosine.lsa.k=11.lsa.share=0.3.majority=6/11      99.915
+knn.cosine.lsa.k=11.lsa.share=0.3.majority=7/11     100.428
+knn.cosine.lsa.k=11.lsa.share=0.3.majority=8/11      99.458
+knn.cosine.lsa.k=11.lsa.share=0.3.majority=9/11      95.956
+knn.cosine.lsa.k=11.lsa.share=0.3.majority=10/11     99.676
+knn.cosine.lsa.k=11.lsa.share=0.3.majority=11/11    100.061
+
