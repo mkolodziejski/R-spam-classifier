@@ -1,6 +1,6 @@
 data.path = "/media/Stuff/Marek/studia/MOW/Projekt/Dane/processed"
-samples = 2000
-max.words = 1000
+samples = 1000
+max.words = 750
 cv.sets = 5
 
 library(e1071)
@@ -28,6 +28,17 @@ batch = list(
 			#list(name = "knn.k=3", 		classify = "classify.knn", get.classes = knn.classes, args = list(k=3) ),
 			#list(name = "knn.k=7", 		classify = "classify.knn", get.classes = knn.classes, args = list(k=7) ),
 			
+			list(name = "knn.euclidean.k=3", 	classify = "classify.knn", get.classes = knn.classes, args = list(k=3, dist.function = euclidean.dist) ),
+			list(name = "knn.euclidean.k=5", 	classify = "classify.knn", get.classes = knn.classes, args = list(k=5, dist.function = euclidean.dist) ),
+			list(name = "knn.euclidean.k=7", 	classify = "classify.knn", get.classes = knn.classes, args = list(k=7, dist.function = euclidean.dist) ),
+			list(name = "knn.euclidean.k=11", 	classify = "classify.knn", get.classes = knn.classes, args = list(k=11, dist.function = euclidean.dist) ),
+			
+			list(name = "knn.cosine.k=3", 	classify = "classify.knn", get.classes = knn.classes, args = list(k=3, dist.function = cosine.dist) ),
+			list(name = "knn.cosine.k=5", 	classify = "classify.knn", get.classes = knn.classes, args = list(k=5, dist.function = cosine.dist) ),
+			list(name = "knn.cosine.k=7", 	classify = "classify.knn", get.classes = knn.classes, args = list(k=7, dist.function = cosine.dist) ),
+			list(name = "knn.cosine.k=11", 	classify = "classify.knn", get.classes = knn.classes, args = list(k=11, dist.function = cosine.dist) )
+			
+		
 			#list(name = "knn.euclidean.lsa.k=3.lsa.share=0.1", 	classify = "classify.knn.lsa", get.classes = knn.classes, args = list(k=3, lsa.dim = dimcalc_share(share=0.1), dist.function = euclidean.dist) ),
 			#list(name = "knn.euclidean.lsa.k=7.lsa.share=0.1", 	classify = "classify.knn.lsa", get.classes = knn.classes, args = list(k=7, lsa.dim = dimcalc_share(share=0.1), dist.function = euclidean.dist) ),
 			#list(name = "knn.euclidean.lsa.k=3.lsa.share=0.3", 	classify = "classify.knn.lsa", get.classes = knn.classes, args = list(k=3, lsa.dim = dimcalc_share(share=0.3), dist.function = euclidean.dist) ),
@@ -46,14 +57,14 @@ batch = list(
 			#list(name = "knn.cosine.lsa.k=3.lsa.share=0.7", 	classify = "classify.knn.lsa", get.classes = knn.classes, args = list(k=3, lsa.dim = dimcalc_share(share=0.7), dist.function = cosine.dist) ),
 			#list(name = "knn.cosine.lsa.k=7.lsa.share=0.7", 	classify = "classify.knn.lsa", get.classes = knn.classes, args = list(k=7, lsa.dim = dimcalc_share(share=0.7), dist.function = cosine.dist) )
 		
-			list(name = "knn.cosine.lsa.k=11.lsa.share=0.3.majority=4/11", classify = "classify.knn.lsa", get.classes = knn.tresholded.classes(4/11), args = list(k=11, lsa.dim = dimcalc_share(share=0.3), dist.function = cosine.dist) ),
-			list(name = "knn.cosine.lsa.k=11.lsa.share=0.3.majority=5/11", classify = "classify.knn.lsa", get.classes = knn.tresholded.classes(5/11), args = list(k=11, lsa.dim = dimcalc_share(share=0.3), dist.function = cosine.dist) ),
-			list(name = "knn.cosine.lsa.k=11.lsa.share=0.3.majority=6/11", classify = "classify.knn.lsa", get.classes = knn.tresholded.classes(6/11), args = list(k=11, lsa.dim = dimcalc_share(share=0.3), dist.function = cosine.dist) ),
-			list(name = "knn.cosine.lsa.k=11.lsa.share=0.3.majority=7/11", classify = "classify.knn.lsa", get.classes = knn.tresholded.classes(7/11), args = list(k=11, lsa.dim = dimcalc_share(share=0.3), dist.function = cosine.dist) ),
-			list(name = "knn.cosine.lsa.k=11.lsa.share=0.3.majority=8/11", classify = "classify.knn.lsa", get.classes = knn.tresholded.classes(8/11), args = list(k=11, lsa.dim = dimcalc_share(share=0.3), dist.function = cosine.dist) ),
-			list(name = "knn.cosine.lsa.k=11.lsa.share=0.3.majority=9/11", classify = "classify.knn.lsa", get.classes = knn.tresholded.classes(9/11), args = list(k=11, lsa.dim = dimcalc_share(share=0.3), dist.function = cosine.dist) ),
-			list(name = "knn.cosine.lsa.k=11.lsa.share=0.3.majority=10/11",classify = "classify.knn.lsa", get.classes = knn.tresholded.classes(10/11), args = list(k=11, lsa.dim = dimcalc_share(share=0.3), dist.function = cosine.dist) ),
-			list(name = "knn.cosine.lsa.k=11.lsa.share=0.3.majority=11/11",classify = "classify.knn.lsa", get.classes = knn.tresholded.classes(11/11), args = list(k=11, lsa.dim = dimcalc_share(share=0.3), dist.function = cosine.dist) )
+			#list(name = "knn.cosine.lsa.k=11.lsa.share=0.3.majority=4/11", classify = "classify.knn.lsa", get.classes = knn.tresholded.classes(4/11), args = list(k=11, lsa.dim = dimcalc_share(share=0.3), dist.function = cosine.dist) ),
+			#list(name = "knn.cosine.lsa.k=11.lsa.share=0.3.majority=5/11", classify = "classify.knn.lsa", get.classes = knn.tresholded.classes(5/11), args = list(k=11, lsa.dim = dimcalc_share(share=0.3), dist.function = cosine.dist) ),
+			#list(name = "knn.cosine.lsa.k=11.lsa.share=0.3.majority=6/11", classify = "classify.knn.lsa", get.classes = knn.tresholded.classes(6/11), args = list(k=11, lsa.dim = dimcalc_share(share=0.3), dist.function = cosine.dist) ),
+			#list(name = "knn.cosine.lsa.k=11.lsa.share=0.3.majority=7/11", classify = "classify.knn.lsa", get.classes = knn.tresholded.classes(7/11), args = list(k=11, lsa.dim = dimcalc_share(share=0.3), dist.function = cosine.dist) ),
+			#list(name = "knn.cosine.lsa.k=11.lsa.share=0.3.majority=8/11", classify = "classify.knn.lsa", get.classes = knn.tresholded.classes(8/11), args = list(k=11, lsa.dim = dimcalc_share(share=0.3), dist.function = cosine.dist) ),
+			#list(name = "knn.cosine.lsa.k=11.lsa.share=0.3.majority=9/11", classify = "classify.knn.lsa", get.classes = knn.tresholded.classes(9/11), args = list(k=11, lsa.dim = dimcalc_share(share=0.3), dist.function = cosine.dist) ),
+			#list(name = "knn.cosine.lsa.k=11.lsa.share=0.3.majority=10/11",classify = "classify.knn.lsa", get.classes = knn.tresholded.classes(10/11), args = list(k=11, lsa.dim = dimcalc_share(share=0.3), dist.function = cosine.dist) ),
+			#list(name = "knn.cosine.lsa.k=11.lsa.share=0.3.majority=11/11",classify = "classify.knn.lsa", get.classes = knn.tresholded.classes(11/11), args = list(k=11, lsa.dim = dimcalc_share(share=0.3), dist.function = cosine.dist) )
 			
 		)
 

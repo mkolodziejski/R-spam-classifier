@@ -885,3 +885,153 @@ knn.cosine.lsa.k=11.lsa.share=0.3.majority=9/11      95.956
 knn.cosine.lsa.k=11.lsa.share=0.3.majority=10/11     99.676
 knn.cosine.lsa.k=11.lsa.share=0.3.majority=11/11    100.061
 
+
+=--------------------------------------------------------------------------------
+
+
+
+ Sun Jun  5 16:37:48 2011 Started batch test
+
+Trying to add database driver (JDBC): RmiJdbc.RJDriver - Warning, not in CLASSPATH?
+Trying to add database driver (JDBC): jdbc.idbDriver - Warning, not in CLASSPATH?
+Trying to add database driver (JDBC): org.gjt.mm.mysql.Driver - Warning, not in CLASSPATH?
+Trying to add database driver (JDBC): com.mckoi.JDBCDriver - Warning, not in CLASSPATH?
+Trying to add database driver (JDBC): org.hsqldb.jdbcDriver - Warning, not in CLASSPATH?
+[KnowledgeFlow] Loading properties and plugins...
+[KnowledgeFlow] Initializing KF...
+Sun Jun  5 16:40:12 2011 Data loaded, summary:
+
+Call:
+load.mail(paths = data.path, samples = samples, shuffle.samples = TRUE, 
+    min.glob.word.freq = 0.01, max.words = max.words)
+
+Loaded:
+ Documents Spam Ham Unknown Words
+       991  491 500       0   750
+
+Number of words per document:
+ Min  Max     Mean  Std.Dev
+   1 1336 77.36226 115.7515
+
+Number of unique words per document:
+ Min Max     Mean Std.Dev
+   1 367 43.42482 40.5013
+
+Number of documents per word:
+ Min MinWord Max MaxWord     Mean  Std.Dev
+  21   taint 646    http 57.37867 57.33154
+
+ Sun Jun  5 16:40:13 2011 Started set 1 
+
+Sun Jun  5 16:42:40 2011 Finished knn.euclidean.k=3 for set 1 (0%)
+Sun Jun  5 16:45:01 2011 Finished knn.euclidean.k=5 for set 1 (2%)
+Sun Jun  5 16:47:34 2011 Finished knn.euclidean.k=7 for set 1 (5%)
+Sun Jun  5 16:50:07 2011 Finished knn.euclidean.k=11 for set 1 (8%)
+Sun Jun  5 16:52:38 2011 Finished knn.cosine.k=3 for set 1 (10%)
+Sun Jun  5 16:55:09 2011 Finished knn.cosine.k=5 for set 1 (12%)
+Sun Jun  5 16:57:40 2011 Finished knn.cosine.k=7 for set 1 (15%)
+Sun Jun  5 17:00:11 2011 Finished knn.cosine.k=11 for set 1 (18%)
+
+ Sun Jun  5 17:00:11 2011 Started set 2 
+
+Sun Jun  5 17:02:47 2011 Finished knn.euclidean.k=3 for set 2 (20%)
+Sun Jun  5 17:05:20 2011 Finished knn.euclidean.k=5 for set 2 (22%)
+Sun Jun  5 17:07:53 2011 Finished knn.euclidean.k=7 for set 2 (25%)
+Sun Jun  5 17:10:28 2011 Finished knn.euclidean.k=11 for set 2 (28%)
+Sun Jun  5 17:12:59 2011 Finished knn.cosine.k=3 for set 2 (30%)
+Sun Jun  5 17:15:30 2011 Finished knn.cosine.k=5 for set 2 (32%)
+Sun Jun  5 17:18:01 2011 Finished knn.cosine.k=7 for set 2 (35%)
+Sun Jun  5 17:20:33 2011 Finished knn.cosine.k=11 for set 2 (38%)
+
+ Sun Jun  5 17:20:33 2011 Started set 3 
+
+Sun Jun  5 17:23:06 2011 Finished knn.euclidean.k=3 for set 3 (40%)
+Sun Jun  5 17:25:39 2011 Finished knn.euclidean.k=5 for set 3 (42%)
+Sun Jun  5 17:28:12 2011 Finished knn.euclidean.k=7 for set 3 (45%)
+Sun Jun  5 17:30:46 2011 Finished knn.euclidean.k=11 for set 3 (48%)
+Sun Jun  5 17:33:19 2011 Finished knn.cosine.k=3 for set 3 (50%)
+Sun Jun  5 17:35:51 2011 Finished knn.cosine.k=5 for set 3 (52%)
+Sun Jun  5 17:38:23 2011 Finished knn.cosine.k=7 for set 3 (55%)
+Sun Jun  5 17:40:54 2011 Finished knn.cosine.k=11 for set 3 (57%)
+
+ Sun Jun  5 17:40:54 2011 Started set 4 
+
+Sun Jun  5 17:43:27 2011 Finished knn.euclidean.k=3 for set 4 (60%)
+Sun Jun  5 17:46:01 2011 Finished knn.euclidean.k=5 for set 4 (62%)
+Sun Jun  5 17:48:35 2011 Finished knn.euclidean.k=7 for set 4 (65%)
+Sun Jun  5 17:51:08 2011 Finished knn.euclidean.k=11 for set 4 (68%)
+Sun Jun  5 17:53:39 2011 Finished knn.cosine.k=3 for set 4 (70%)
+Sun Jun  5 17:56:11 2011 Finished knn.cosine.k=5 for set 4 (72%)
+Sun Jun  5 17:58:42 2011 Finished knn.cosine.k=7 for set 4 (75%)
+Sun Jun  5 18:01:14 2011 Finished knn.cosine.k=11 for set 4 (78%)
+
+ Sun Jun  5 18:01:14 2011 Started set 5 
+
+Sun Jun  5 18:03:47 2011 Finished knn.euclidean.k=3 for set 5 (80%)
+Sun Jun  5 18:06:20 2011 Finished knn.euclidean.k=5 for set 5 (82%)
+Sun Jun  5 18:08:53 2011 Finished knn.euclidean.k=7 for set 5 (85%)
+Sun Jun  5 18:11:26 2011 Finished knn.euclidean.k=11 for set 5 (88%)
+Sun Jun  5 18:13:58 2011 Finished knn.cosine.k=3 for set 5 (90%)
+Sun Jun  5 18:16:29 2011 Finished knn.cosine.k=5 for set 5 (92%)
+Sun Jun  5 18:18:59 2011 Finished knn.cosine.k=7 for set 5 (95%)
+Sun Jun  5 18:21:30 2011 Finished knn.cosine.k=11 for set 5 (98%)
+
+ Sun Jun  5 18:21:30 2011 Finished batch test
+
+
+Errors per set:
+                   [,1] [,2] [,3] [,4] [,5]
+knn.euclidean.k=3    25    6    6   20   18
+knn.euclidean.k=5    24   11    9   22   18
+knn.euclidean.k=7    27   13   12   21   19
+knn.euclidean.k=11   26   13   15   22   25
+knn.cosine.k=3       12    7    9   14   14
+knn.cosine.k=5       15    7    6   14   17
+knn.cosine.k=7       14    9    5   18   15
+knn.cosine.k=11      19   13    6   20   17
+
+Performance:
+                   performance
+knn.euclidean.k=3    0.9243189
+knn.euclidean.k=5    0.9152371
+knn.euclidean.k=7    0.9071645
+knn.euclidean.k=11   0.8980827
+knn.cosine.k=3       0.9434914
+knn.cosine.k=5       0.9404642
+knn.cosine.k=7       0.9384460
+knn.cosine.k=11      0.9243189
+
+TP Rate:
+                     tp.rate
+knn.euclidean.k=3  0.9653768
+knn.euclidean.k=5  0.9572301
+knn.euclidean.k=7  0.9633401
+knn.euclidean.k=11 0.9694501
+knn.cosine.k=3     0.9368635
+knn.cosine.k=5     0.9409369
+knn.cosine.k=7     0.9246436
+knn.cosine.k=11    0.9042770
+
+FP Rate:
+                   fp.rate
+knn.euclidean.k=3    0.116
+knn.euclidean.k=5    0.126
+knn.euclidean.k=7    0.148
+knn.euclidean.k=11   0.172
+knn.cosine.k=3       0.050
+knn.cosine.k=5       0.060
+knn.cosine.k=7       0.048
+knn.cosine.k=11      0.056
+
+CPU Time:
+                   total.time
+knn.euclidean.k=3     754.380
+knn.euclidean.k=5     749.030
+knn.euclidean.k=7     760.255
+knn.euclidean.k=11    761.638
+knn.cosine.k=3        751.614
+knn.cosine.k=5        752.853
+knn.cosine.k=7        749.061
+knn.cosine.k=11       751.301
+
+
