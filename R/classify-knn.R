@@ -88,10 +88,13 @@ predict.knn = function(object, newdata = NULL, ...) {
 	
 	classes = aggregate(matching.classes, list(rep(TRUE,params$k)), params$agg.method)[,-1]
 	
+	classes.extended = matrix(rep(classes, each=params$k), params$k, length(classes))
+	majority = colSums(matching.classes == classes.extended) / params$k
+	
 	i = cbind(rep(1:test.samples, each=params$k), c(matches))
 	matches.dist = array(distance[i], dim(matches))
 	
-	res = data.frame(Classes = t(classes), Matches = t(matches), 
+	res = data.frame(Classes = t(classes), Majority = majority, Matches = t(matches), 
 								Matching.Classes = t(matching.classes), Match.Distance = t(matches.dist))
 						
 	dimnames(res)[1] = dimnames(test)[1]
