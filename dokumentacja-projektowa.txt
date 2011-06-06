@@ -35,7 +35,7 @@ Ad. 2 (szczegółowy opis wykorzystanych algorytmów)
 Macierze T i D są ortogonalne oraz zawierają wektory osobliwe macierzy A, natomiast S jest macierzą diagonalną zawierającą wartości osobliwe macierzy A w kolejności malejącej. Reprezentację dokumentu w przestrzeni pseudo-słów można otrzymac w wyniku przekształcenia:
 	d' = S^-1 t(T) d,
 gdzie d jest wektorem częstości występowania słów w danym dokumencie, a d' jest wynikowym wektorem korelacji z pseudo-słowami LSA. Otrzymane w ten sposób wektory są dalej wykorzystywane bezpośrednio przez klasyfikator kNN.
-	Dodatkową zaletą dekompozycji SVD w metodzie LSA jest możliwośc zmniejszenia wymiarów danych. Wartości osobliwe wskazują jak dużo informacji przekazuje dane pseudo-słowo, tak więc możemy odrzucic te (wartosci osobliwe), które nie są istotne dla dalszego przetwarzania, np. pozostawiając tylko słowa, które przenoszą łącznie określony procent informacji.
+	Dodatkową zaletą dekompozycji SVD w metodzie LSA jest możliwość zmniejszenia wymiarów danych. Wartości osobliwe wskazują jak dużo informacji przekazuje dane pseudo-słowo, tak więc możemy odrzucic te (wartosci osobliwe), które nie są istotne dla dalszego przetwarzania, np. pozostawiając tylko słowa, które przenoszą łącznie określony procent informacji.
 	W projekcie została zastosowana gotowa implementacja z pakietu 'lsa'.
 
 
@@ -73,12 +73,13 @@ Parametry algorytmów, których wpływ na wyniki był badany
 
 Sposób oceny jakości modeli
 
-    Oceniana była przede wszystkim skuteczność klasyfikatora, a więc procent poprawnych odpowiedzi na zbiorze testowym. Dodatkowo zmierzona została wydajnośc poszczególnych klasyfikatorów oraz przeanalizowano wpływ parametrów klasyfikatorów na występowanie błędów false-positive i false-negative. W przypadku naiwnego klasyfikatora bayesowskiego, aby wpłynąc na liczbę błędów false-positive wykorzystaliśmy zmianę prawdopodobnieństw a-priori poszczególnych kategorii - "spamu" i "hamu". W przypadku klasyfikatorów najbliższego sąsiedztwa zastosowaliśmy zmianę wymaganej pewności klasyfikacji "spamu".
+    Oceniana była przede wszystkim skuteczność klasyfikatora, a więc procent poprawnych odpowiedzi na zbiorze testowym. Dodatkowo zmierzona została wydajność poszczególnych klasyfikatorów oraz przeanalizowano wpływ parametrów klasyfikatorów na występowanie błędów false-positive i false-negative. W przypadku naiwnego klasyfikatora bayesowskiego, aby wpłynąc na liczbę błędów false-positive wykorzystaliśmy zmianę prawdopodobnieństw a-priori poszczególnych kategorii - "spamu" i "hamu". W przypadku klasyfikatorów najbliższego sąsiedztwa zastosowaliśmy zmianę wymaganej pewności klasyfikacji "spamu".
 
 
 Uzyskane wyniki
 
-    Testy wszystkich algorytmów odbywały się wykorzystując 5-krotną krzyżową walidację na zbiorze danych zawierającym 2000 dokumentów i conajwyżej 1000 wykrytych, najczęściej występujących słów. Testy wpływu poszczególnych parametrów na jakość klasyfikacji odbywały się w zależności od wydajności poszczególnych algorytmów, dla klasyfikatora kNN z wykorzystaniem LSA wykorzystany został rozmiar danych podany wyżej, natomiast dla pozostałych algorytmów musiał on zostac ograniczony:
+    Testy wszystkich algorytmów odbywały się wykorzystując 5-krotną krzyżową walidację na zbiorze danych zawierającym 2000 dokumentów i co najwyżej 1000 wykrytych, najczęściej występujących słów. Ilość dokumentów, na których przeprowadzaliśmy testy wpływu poszczególnych parametrów na jakość klasyfikacji, zależała od wydajności poszczególnych algorytmów:
+    - dla klasyfikatora kNN z wykorzystaniem LSA: rozmiar danych podany powyżej
 	- dla naiwnego klasyfikatora bayesowskiego: 1000 dokumentów
 	- dla prostego klasyfikatora kNN: 1000 dokumentów, maksymalnie 750 słów
 
