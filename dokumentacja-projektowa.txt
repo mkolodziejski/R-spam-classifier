@@ -86,9 +86,10 @@ Uzyskane wyniki
     Dla tego klasyfikatora osiągnięty został wynik w przybliżeniu 92% poprawnych odpowiedzi (91,9839%).
     Zmiana prawdopodobieństwa a-priori spamu pogarszała podany powyżej wynik. Przy stosunku 3:2 spamu do hamu, skuteczność klasyfikatora spadła do 72%. Dalsze zwiększenie ilosci spamu podczas uczenia do stosunku 7:3 skutkowało uzyskaniem klasyfikatora niemal bezużytecznego - jego skuteczność wyniosła 53%.
 
-2) knn TODO
+2) Klasyfikator k-Najbliższych Sąsiadów
+	
 
-3) knn+LSA TODO
+3) Klasyfikator k-Najbliższych Sąsiadów w Przestrzeni LSA
 
 
 Podsumowanie
