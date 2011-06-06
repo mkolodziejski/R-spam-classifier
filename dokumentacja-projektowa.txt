@@ -55,7 +55,7 @@ Parametry algorytmów, których wpływ na wyniki był badany
     Podczas eksperymentów sprawdzany był wpływ różnych parametrów wykorzystywanych algorytmów na jakość klasyfikacji:
 1) Naiwny Klasyfikator Bayesowski
     - prawdopodobieństwo a-priori spamu - ze wzgledu na wykorzystanie już istniejącej implementacji tego klasyfikatora, wpływ prawdopodobieństwa a-priori symulowany był poprzez zwiększenie liczby wiadomości niepożądanych w stosunku do pożądanych w zbiorze treningowym. Przetestowane zostały trzy warianty: stosunek 1:1, 3:2 oraz 7:3. 
-    - próg prawdopodobieństwa - prawdopobodobieństwo wystąpienia słowa w dokumencie w przypadku jego braku. Sprawdzone zostały trzy wartości: 0.005, 0.01 oraz 0.05.
+    - próg prawdopodobieństwa - prawdopodobieństwo wystąpienia słowa w dokumencie w przypadku jego braku. Sprawdzone zostały trzy wartości: 0.005, 0.01 oraz 0.05.
 
 2) Klasyfikator k-Najbliższych Sąsiadów
 	- k - liczba dokumentów z otoczenia klasyfikowanego przykładu, które są brane pod uwagę przy wyznaczaniu kategorii.
@@ -68,7 +68,7 @@ Parametry algorytmów, których wpływ na wyniki był badany
 
 3) Klasyfikator k-Najbliższych Sąsiadów Pracujący w Przestrzeni LSA
 	- miara odległości wyznaczająca sąsiedztwo przykładów w przestrzeni LSA - podobnie jak w poprzednim przypadku zostały wykorzystane miary euklidesowe i kosinusowe
-	 - poziom redukcji wymiarów przestrzeni LSA - wybierane jest tyle największych wartości osobliwych (wskazujących na najważniejsze pseudo-słowa), aby ich suma, w stosunku do sumy wszystkich wartości, przekroczyła porządany próg.
+	 - poziom redukcji wymiarów przestrzeni LSA - wybierane jest tyle największych wartości osobliwych (wskazujących na najważniejsze pseudo-słowa), aby ich suma, w stosunku do sumy wszystkich wartości, przekroczyła pożądany próg.
 
 
 Sposób oceny jakości modeli
